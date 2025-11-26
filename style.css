@@ -1,0 +1,196 @@
+html{ 
+    scroll-behavior: smooth; 
+}
+		
+*{ 
+    margin: 0; 
+    padding:0; 
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif; 
+}
+
+.row{
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+/* ///////////// Nav Bar \\\\\\\\\\\\ */
+.nav_style{
+    background-color: #66cdaa61!important;
+}
+
+.nav_style a{
+    color: blueviolet;
+    /* color: black; */
+}
+.nav_style a:hover{
+    /* color: blueviolet; */
+    color: black;
+}
+
+
+
+/* ///////////// main header \\\\\\\\\\\\ */
+.main_header{
+    height: 450px;
+    width: 100%;
+}
+
+.rightside h1{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.corona_rot img{
+    animation: gocorona 3s linear infinite;
+}
+@keyframes gocorona {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.leftside img{
+    animation: heartbeat 5s linear infinite;
+}
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 ) rotate(0deg);
+  }
+  20%
+  {
+    transform: scale( 1 ) rotate(60deg);;
+  }
+  40%
+  {
+    transform: scale( .75 ) rotate(120deg);;
+  }
+  60%
+  {
+    transform: scale( 1 ) rotate(180deg);;
+  }
+  80%
+  {
+    transform: scale( .75 ) rotate(240deg);;
+  }
+  100%
+  {
+    transform: scale( 1 ) rotate(360deg);;
+  }
+}
+
+
+/* ////////////// corona_update \\\\\\\\\\\\\\\\\*/
+
+.corona_update{
+    margin: 0 0 30px 0;
+}
+
+.corona_update h3{
+    color: #ff7675;
+    font-weight: 600;
+}
+
+.corona_update h1{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+
+/* ///////////////// about section \\\\\\\\\\\\\\\\\\ */
+
+.sub_section{
+    background-color: #f8f5ff;
+}
+.sub_section h1{
+    font-weight: 900;
+}
+.sub_section h2{
+    font-weight: 700;
+}
+.sub_section p{
+    font-size: 1.2rem;
+}
+
+/* /////////////////// Coronavirus symptoms \\\\\\\\\\\\\\\\\ */
+
+.corona_symptoms h1{
+    font-weight: 900;
+}
+.corona_symptoms figcaption{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* /////////////////// Prevention Against Coronavirus \\\\\\\\\\\\\\\\\ */
+
+.prevention_corona{
+    background-color: #f8f5ff;
+}
+.prevention_corona h1{
+    font-weight: 900;
+}
+.prevention_corona p{
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+
+/* /////////////////// Footer \\\\\\\\\\\\\\\\\ */
+
+.footer_style{
+    background-color: black!important;
+}
+.footer_style p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0!important;
+}
+
+
+/***************** top scroll **************/
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 42px; /* Place the button at the bottom of the page */
+    right: 40px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #00A8FF; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  #myBtn:hover {
+    background:  #606060 ; /* Add a dark-grey background on hover */
+  }
+
+
+/***************** responsive css *****************/
+
+@media(max-width: 780px)
+{ .main_header{ height: 700px; text-align: center; }
+
+	.main_header h1{     
+	text-align: center;
+    padding: 0;
+    width: 100%;
+    font-size: 30px; }
+
+    .count_style{
+        display: inline!important;
+    }
+    .count_style p{
+        text-align: center;
+    }
+
+    .about_res{
+        margin-left: 0!important;
+    }
+}
+
+

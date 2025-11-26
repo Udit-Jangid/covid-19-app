@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* ///////////// Nav Bar \\\\\\\\\\\\ */
+        .nav_style {
+            background-color: #66cdaa61 !important;
+        }
+
+        .nav_style a {
+            color: blueviolet;
+            /* color: black; */
+        }
+
+        .nav_style a:hover {
+            /* color: blueviolet; */
+            color: black;
+        }
+
+
+
+        /* ///////////// main header \\\\\\\\\\\\ */
+        .main_header {
+            height: 450px;
+            width: 100%;
+        }
+
+        .rightside h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .corona_rot img {
+            animation: gocorona 3s linear infinite;
+        }
+
+        @keyframes gocorona {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .leftside img {
+            animation: heartbeat 5s linear infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(.75) rotate(0deg);
+            }
+
+            20% {
+                transform: scale(1) rotate(60deg);
+                ;
+            }
+
+            40% {
+                transform: scale(.75) rotate(120deg);
+                ;
+            }
+
+            60% {
+                transform: scale(1) rotate(180deg);
+                ;
+            }
+
+            80% {
+                transform: scale(.75) rotate(240deg);
+                ;
+            }
+
+            100% {
+                transform: scale(1) rotate(360deg);
+                ;
+            }
+        }
+
+
+        /* ////////////// corona_update \\\\\\\\\\\\\\\\\*/
+
+        .corona_update {
+            margin: 0 0 30px 0;
+        }
+
+        .corona_update h3 {
+            color: #ff7675;
+            font-weight: 600;
+        }
+
+        .corona_update h1 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+
+        /* ///////////////// about section \\\\\\\\\\\\\\\\\\ */
+
+        .sub_section {
+            background-color: #f8f5ff;
+        }
+
+        .sub_section h1 {
+            font-weight: 900;
+        }
+
+        .sub_section h2 {
+            font-weight: 700;
+        }
+
+        .sub_section p {
+            font-size: 1.2rem;
+        }
+
+        /* /////////////////// Coronavirus symptoms \\\\\\\\\\\\\\\\\ */
+
+        .corona_symptoms h1 {
+            font-weight: 900;
+        }
+
+        .corona_symptoms figcaption {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* /////////////////// Prevention Against Coronavirus \\\\\\\\\\\\\\\\\ */
+
+        .prevention_corona {
+            background-color: #f8f5ff;
+        }
+
+        .prevention_corona h1 {
+            font-weight: 900;
+        }
+
+        .prevention_corona p {
+            font-size: 1.05rem;
+            font-weight: bold;
+        }
+
+
+        /* /////////////////// Footer \\\\\\\\\\\\\\\\\ */
+
+        .footer_style {
+            background-color: black !important;
+        }
+
+        .footer_style p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0 !important;
+        }
+
+
+        /***************** top scroll **************/
+        #myBtn {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Fixed/sticky position */
+            bottom: 42px;
+            /* Place the button at the bottom of the page */
+            right: 40px;
+            /* Place the button 30px from the right */
+            z-index: 99;
+            /* Make sure it does not overlap */
+            border: none;
+            /* Remove borders */
+            outline: none;
+            /* Remove outline */
+            background-color: #00A8FF;
+            /* Set a background color */
+            color: white;
+            /* Text color */
+            cursor: pointer;
+            /* Add a mouse pointer on hover */
+            padding: 10px;
+            /* Some padding */
+            border-radius: 10px;
+            /* Rounded corners */
+        }
+
+        #myBtn:hover {
+            background: #606060;
+            /* Add a dark-grey background on hover */
+        }
+
+
+        /***************** responsive css *****************/
+
+        @media(max-width: 780px) {
+            .main_header {
+                height: 700px;
+                text-align: center;
+            }
+
+            .main_header h1 {
+                text-align: center;
+                padding: 0;
+                width: 100%;
+                font-size: 30px;
+            }
+
+            .count_style {
+                display: inline !important;
+            }
+
+            .count_style p {
+                text-align: center;
+            }
+
+            .about_res {
+                margin-left: 0 !important;
+            }
+        }
+
+        /* /////////////////// World Table CSS \\\\\\\\\\\\\\\\\ */
+
+        .world_head {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .country_cell {
+            background-color: #7a4a91;
+            color: #fff;
+        }
+
+        .tc_cell {
+            background-color: #4bb7d8;
+        }
+
+        .tr_cell {
+            background-color: #9cc850;
+        }
+
+        .td_cell {
+            background-color: #f36e23;
+        }
+
+        .nc_cell {
+            background-color: #4bb7d8;
+        }
+
+        .nr_cell {
+            background-color: #9cc850;
+        }
+
+        .nd_cell {
+            background-color: #f36e23;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg nav_style p-2" style="font-weight: 600;">
+        <a class="navbar-brand pl-5" href="#">COVID-19</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto pr-5 text-capitalize">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./home.html#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./home.html#aboutid">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./home.html#sympid">Symptoms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./home.html#preventid">Prevention</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./worldlive.html">World-Live</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./indialive.html">India-Live</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <!--  ///////////// world live cases \\\\\\\\\\\\\\\  -->
+
+    <section class="corona_update container-fluid">
+        <div class="mt-5 mb-5">
+            <h3 class="text-uppercase text-center">COVID-19 LIVE UPDATES OF THE WORLD</h3>
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped text-center">
+                <tr class="world_head">
+                    <th>Country</th>
+                    <th>TotalConfirmed</th>
+                    <th>TotalRecovered</th>
+                    <th>TotalDeaths</th>
+                    <th>NewConfirmed</th>
+                    <th>NewRecovered</th>
+                    <th>NewDeaths</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country1%}</th>
+                    <th class="tc_cell">{%TotalConfirmed1%}</th>
+                    <th class="tr_cell">{%TotalRecovered1%}</th>
+                    <th class="td_cell">{%TotalDeaths1%}</th>
+                    <th class="nc_cell">{%NewConfirmed1%}</th>
+                    <th class="nr_cell">{%NewRecovered1%}</th>
+                    <th class="nd_cell">{%NewDeaths1%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country2%}</th>
+                    <th class="tc_cell">{%TotalConfirmed2%}</th>
+                    <th class="tr_cell">{%TotalRecovered2%}</th>
+                    <th class="td_cell">{%TotalDeaths2%}</th>
+                    <th class="nc_cell">{%NewConfirmed2%}</th>
+                    <th class="nr_cell">{%NewRecovered2%}</th>
+                    <th class="nd_cell">{%NewDeaths2%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country3%}</th>
+                    <th class="tc_cell">{%TotalConfirmed3%}</th>
+                    <th class="tr_cell">{%TotalRecovered3%}</th>
+                    <th class="td_cell">{%TotalDeaths3%}</th>
+                    <th class="nc_cell">{%NewConfirmed3%}</th>
+                    <th class="nr_cell">{%NewRecovered3%}</th>
+                    <th class="nd_cell">{%NewDeaths3%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country4%}</th>
+                    <th class="tc_cell">{%TotalConfirmed4%}</th>
+                    <th class="tr_cell">{%TotalRecovered4%}</th>
+                    <th class="td_cell">{%TotalDeaths4%}</th>
+                    <th class="nc_cell">{%NewConfirmed4%}</th>
+                    <th class="nr_cell">{%NewRecovered4%}</th>
+                    <th class="nd_cell">{%NewDeaths4%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country5%}</th>
+                    <th class="tc_cell">{%TotalConfirmed5%}</th>
+                    <th class="tr_cell">{%TotalRecovered5%}</th>
+                    <th class="td_cell">{%TotalDeaths5%}</th>
+                    <th class="nc_cell">{%NewConfirmed5%}</th>
+                    <th class="nr_cell">{%NewRecovered5%}</th>
+                    <th class="nd_cell">{%NewDeaths5%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country6%}</th>
+                    <th class="tc_cell">{%TotalConfirmed6%}</th>
+                    <th class="tr_cell">{%TotalRecovered6%}</th>
+                    <th class="td_cell">{%TotalDeaths6%}</th>
+                    <th class="nc_cell">{%NewConfirmed6%}</th>
+                    <th class="nr_cell">{%NewRecovered6%}</th>
+                    <th class="nd_cell">{%NewDeaths6%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country7%}</th>
+                    <th class="tc_cell">{%TotalConfirmed7%}</th>
+                    <th class="tr_cell">{%TotalRecovered7%}</th>
+                    <th class="td_cell">{%TotalDeaths7%}</th>
+                    <th class="nc_cell">{%NewConfirmed7%}</th>
+                    <th class="nr_cell">{%NewRecovered7%}</th>
+                    <th class="nd_cell">{%NewDeaths7%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country8%}</th>
+                    <th class="tc_cell">{%TotalConfirmed8%}</th>
+                    <th class="tr_cell">{%TotalRecovered8%}</th>
+                    <th class="td_cell">{%TotalDeaths8%}</th>
+                    <th class="nc_cell">{%NewConfirmed8%}</th>
+                    <th class="nr_cell">{%NewRecovered8%}</th>
+                    <th class="nd_cell">{%NewDeaths8%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country9%}</th>
+                    <th class="tc_cell">{%TotalConfirmed9%}</th>
+                    <th class="tr_cell">{%TotalRecovered9%}</th>
+                    <th class="td_cell">{%TotalDeaths9%}</th>
+                    <th class="nc_cell">{%NewConfirmed9%}</th>
+                    <th class="nr_cell">{%NewRecovered9%}</th>
+                    <th class="nd_cell">{%NewDeaths9%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country10%}</th>
+                    <th class="tc_cell">{%TotalConfirmed10%}</th>
+                    <th class="tr_cell">{%TotalRecovered10%}</th>
+                    <th class="td_cell">{%TotalDeaths10%}</th>
+                    <th class="nc_cell">{%NewConfirmed10%}</th>
+                    <th class="nr_cell">{%NewRecovered10%}</th>
+                    <th class="nd_cell">{%NewDeaths10%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country11%}</th>
+                    <th class="tc_cell">{%TotalConfirmed11%}</th>
+                    <th class="tr_cell">{%TotalRecovered11%}</th>
+                    <th class="td_cell">{%TotalDeaths11%}</th>
+                    <th class="nc_cell">{%NewConfirmed11%}</th>
+                    <th class="nr_cell">{%NewRecovered11%}</th>
+                    <th class="nd_cell">{%NewDeaths11%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country12%}</th>
+                    <th class="tc_cell">{%TotalConfirmed12%}</th>
+                    <th class="tr_cell">{%TotalRecovered12%}</th>
+                    <th class="td_cell">{%TotalDeaths12%}</th>
+                    <th class="nc_cell">{%NewConfirmed12%}</th>
+                    <th class="nr_cell">{%NewRecovered12%}</th>
+                    <th class="nd_cell">{%NewDeaths12%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country13%}</th>
+                    <th class="tc_cell">{%TotalConfirmed13%}</th>
+                    <th class="tr_cell">{%TotalRecovered13%}</th>
+                    <th class="td_cell">{%TotalDeaths13%}</th>
+                    <th class="nc_cell">{%NewConfirmed13%}</th>
+                    <th class="nr_cell">{%NewRecovered13%}</th>
+                    <th class="nd_cell">{%NewDeaths13%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country14%}</th>
+                    <th class="tc_cell">{%TotalConfirmed14%}</th>
+                    <th class="tr_cell">{%TotalRecovered14%}</th>
+                    <th class="td_cell">{%TotalDeaths14%}</th>
+                    <th class="nc_cell">{%NewConfirmed14%}</th>
+                    <th class="nr_cell">{%NewRecovered14%}</th>
+                    <th class="nd_cell">{%NewDeaths14%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country15%}</th>
+                    <th class="tc_cell">{%TotalConfirmed15%}</th>
+                    <th class="tr_cell">{%TotalRecovered15%}</th>
+                    <th class="td_cell">{%TotalDeaths15%}</th>
+                    <th class="nc_cell">{%NewConfirmed15%}</th>
+                    <th class="nr_cell">{%NewRecovered15%}</th>
+                    <th class="nd_cell">{%NewDeaths15%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country16%}</th>
+                    <th class="tc_cell">{%TotalConfirmed16%}</th>
+                    <th class="tr_cell">{%TotalRecovered16%}</th>
+                    <th class="td_cell">{%TotalDeaths16%}</th>
+                    <th class="nc_cell">{%NewConfirmed16%}</th>
+                    <th class="nr_cell">{%NewRecovered16%}</th>
+                    <th class="nd_cell">{%NewDeaths16%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country17%}</th>
+                    <th class="tc_cell">{%TotalConfirmed17%}</th>
+                    <th class="tr_cell">{%TotalRecovered17%}</th>
+                    <th class="td_cell">{%TotalDeaths17%}</th>
+                    <th class="nc_cell">{%NewConfirmed17%}</th>
+                    <th class="nr_cell">{%NewRecovered17%}</th>
+                    <th class="nd_cell">{%NewDeaths17%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country18%}</th>
+                    <th class="tc_cell">{%TotalConfirmed18%}</th>
+                    <th class="tr_cell">{%TotalRecovered18%}</th>
+                    <th class="td_cell">{%TotalDeaths18%}</th>
+                    <th class="nc_cell">{%NewConfirmed18%}</th>
+                    <th class="nr_cell">{%NewRecovered18%}</th>
+                    <th class="nd_cell">{%NewDeaths18%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country19%}</th>
+                    <th class="tc_cell">{%TotalConfirmed19%}</th>
+                    <th class="tr_cell">{%TotalRecovered19%}</th>
+                    <th class="td_cell">{%TotalDeaths19%}</th>
+                    <th class="nc_cell">{%NewConfirmed19%}</th>
+                    <th class="nr_cell">{%NewRecovered19%}</th>
+                    <th class="nd_cell">{%NewDeaths19%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country20%}</th>
+                    <th class="tc_cell">{%TotalConfirmed20%}</th>
+                    <th class="tr_cell">{%TotalRecovered20%}</th>
+                    <th class="td_cell">{%TotalDeaths20%}</th>
+                    <th class="nc_cell">{%NewConfirmed20%}</th>
+                    <th class="nr_cell">{%NewRecovered20%}</th>
+                    <th class="nd_cell">{%NewDeaths20%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country21%}</th>
+                    <th class="tc_cell">{%TotalConfirmed21%}</th>
+                    <th class="tr_cell">{%TotalRecovered21%}</th>
+                    <th class="td_cell">{%TotalDeaths21%}</th>
+                    <th class="nc_cell">{%NewConfirmed21%}</th>
+                    <th class="nr_cell">{%NewRecovered21%}</th>
+                    <th class="nd_cell">{%NewDeaths21%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country22%}</th>
+                    <th class="tc_cell">{%TotalConfirmed22%}</th>
+                    <th class="tr_cell">{%TotalRecovered22%}</th>
+                    <th class="td_cell">{%TotalDeaths22%}</th>
+                    <th class="nc_cell">{%NewConfirmed22%}</th>
+                    <th class="nr_cell">{%NewRecovered22%}</th>
+                    <th class="nd_cell">{%NewDeaths22%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country23%}</th>
+                    <th class="tc_cell">{%TotalConfirmed23%}</th>
+                    <th class="tr_cell">{%TotalRecovered23%}</th>
+                    <th class="td_cell">{%TotalDeaths23%}</th>
+                    <th class="nc_cell">{%NewConfirmed23%}</th>
+                    <th class="nr_cell">{%NewRecovered23%}</th>
+                    <th class="nd_cell">{%NewDeaths23%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country24%}</th>
+                    <th class="tc_cell">{%TotalConfirmed24%}</th>
+                    <th class="tr_cell">{%TotalRecovered24%}</th>
+                    <th class="td_cell">{%TotalDeaths24%}</th>
+                    <th class="nc_cell">{%NewConfirmed24%}</th>
+                    <th class="nr_cell">{%NewRecovered24%}</th>
+                    <th class="nd_cell">{%NewDeaths24%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country25%}</th>
+                    <th class="tc_cell">{%TotalConfirmed25%}</th>
+                    <th class="tr_cell">{%TotalRecovered25%}</th>
+                    <th class="td_cell">{%TotalDeaths25%}</th>
+                    <th class="nc_cell">{%NewConfirmed25%}</th>
+                    <th class="nr_cell">{%NewRecovered25%}</th>
+                    <th class="nd_cell">{%NewDeaths25%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country26%}</th>
+                    <th class="tc_cell">{%TotalConfirmed26%}</th>
+                    <th class="tr_cell">{%TotalRecovered26%}</th>
+                    <th class="td_cell">{%TotalDeaths26%}</th>
+                    <th class="nc_cell">{%NewConfirmed26%}</th>
+                    <th class="nr_cell">{%NewRecovered26%}</th>
+                    <th class="nd_cell">{%NewDeaths26%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country27%}</th>
+                    <th class="tc_cell">{%TotalConfirmed27%}</th>
+                    <th class="tr_cell">{%TotalRecovered27%}</th>
+                    <th class="td_cell">{%TotalDeaths27%}</th>
+                    <th class="nc_cell">{%NewConfirmed27%}</th>
+                    <th class="nr_cell">{%NewRecovered27%}</th>
+                    <th class="nd_cell">{%NewDeaths27%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country28%}</th>
+                    <th class="tc_cell">{%TotalConfirmed28%}</th>
+                    <th class="tr_cell">{%TotalRecovered28%}</th>
+                    <th class="td_cell">{%TotalDeaths28%}</th>
+                    <th class="nc_cell">{%NewConfirmed28%}</th>
+                    <th class="nr_cell">{%NewRecovered28%}</th>
+                    <th class="nd_cell">{%NewDeaths28%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country29%}</th>
+                    <th class="tc_cell">{%TotalConfirmed29%}</th>
+                    <th class="tr_cell">{%TotalRecovered29%}</th>
+                    <th class="td_cell">{%TotalDeaths29%}</th>
+                    <th class="nc_cell">{%NewConfirmed29%}</th>
+                    <th class="nr_cell">{%NewRecovered29%}</th>
+                    <th class="nd_cell">{%NewDeaths29%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country30%}</th>
+                    <th class="tc_cell">{%TotalConfirmed30%}</th>
+                    <th class="tr_cell">{%TotalRecovered30%}</th>
+                    <th class="td_cell">{%TotalDeaths30%}</th>
+                    <th class="nc_cell">{%NewConfirmed30%}</th>
+                    <th class="nr_cell">{%NewRecovered30%}</th>
+                    <th class="nd_cell">{%NewDeaths30%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country31%}</th>
+                    <th class="tc_cell">{%TotalConfirmed31%}</th>
+                    <th class="tr_cell">{%TotalRecovered31%}</th>
+                    <th class="td_cell">{%TotalDeaths31%}</th>
+                    <th class="nc_cell">{%NewConfirmed31%}</th>
+                    <th class="nr_cell">{%NewRecovered31%}</th>
+                    <th class="nd_cell">{%NewDeaths31%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country32%}</th>
+                    <th class="tc_cell">{%TotalConfirmed32%}</th>
+                    <th class="tr_cell">{%TotalRecovered32%}</th>
+                    <th class="td_cell">{%TotalDeaths32%}</th>
+                    <th class="nc_cell">{%NewConfirmed32%}</th>
+                    <th class="nr_cell">{%NewRecovered32%}</th>
+                    <th class="nd_cell">{%NewDeaths32%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country33%}</th>
+                    <th class="tc_cell">{%TotalConfirmed33%}</th>
+                    <th class="tr_cell">{%TotalRecovered33%}</th>
+                    <th class="td_cell">{%TotalDeaths33%}</th>
+                    <th class="nc_cell">{%NewConfirmed33%}</th>
+                    <th class="nr_cell">{%NewRecovered33%}</th>
+                    <th class="nd_cell">{%NewDeaths33%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country34%}</th>
+                    <th class="tc_cell">{%TotalConfirmed34%}</th>
+                    <th class="tr_cell">{%TotalRecovered34%}</th>
+                    <th class="td_cell">{%TotalDeaths34%}</th>
+                    <th class="nc_cell">{%NewConfirmed34%}</th>
+                    <th class="nr_cell">{%NewRecovered34%}</th>
+                    <th class="nd_cell">{%NewDeaths34%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country35%}</th>
+                    <th class="tc_cell">{%TotalConfirmed35%}</th>
+                    <th class="tr_cell">{%TotalRecovered35%}</th>
+                    <th class="td_cell">{%TotalDeaths35%}</th>
+                    <th class="nc_cell">{%NewConfirmed35%}</th>
+                    <th class="nr_cell">{%NewRecovered35%}</th>
+                    <th class="nd_cell">{%NewDeaths35%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country36%}</th>
+                    <th class="tc_cell">{%TotalConfirmed36%}</th>
+                    <th class="tr_cell">{%TotalRecovered36%}</th>
+                    <th class="td_cell">{%TotalDeaths36%}</th>
+                    <th class="nc_cell">{%NewConfirmed36%}</th>
+                    <th class="nr_cell">{%NewRecovered36%}</th>
+                    <th class="nd_cell">{%NewDeaths36%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country37%}</th>
+                    <th class="tc_cell">{%TotalConfirmed37%}</th>
+                    <th class="tr_cell">{%TotalRecovered37%}</th>
+                    <th class="td_cell">{%TotalDeaths37%}</th>
+                    <th class="nc_cell">{%NewConfirmed37%}</th>
+                    <th class="nr_cell">{%NewRecovered37%}</th>
+                    <th class="nd_cell">{%NewDeaths37%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country38%}</th>
+                    <th class="tc_cell">{%TotalConfirmed38%}</th>
+                    <th class="tr_cell">{%TotalRecovered38%}</th>
+                    <th class="td_cell">{%TotalDeaths38%}</th>
+                    <th class="nc_cell">{%NewConfirmed38%}</th>
+                    <th class="nr_cell">{%NewRecovered38%}</th>
+                    <th class="nd_cell">{%NewDeaths38%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country39%}</th>
+                    <th class="tc_cell">{%TotalConfirmed39%}</th>
+                    <th class="tr_cell">{%TotalRecovered39%}</th>
+                    <th class="td_cell">{%TotalDeaths39%}</th>
+                    <th class="nc_cell">{%NewConfirmed39%}</th>
+                    <th class="nr_cell">{%NewRecovered39%}</th>
+                    <th class="nd_cell">{%NewDeaths39%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country40%}</th>
+                    <th class="tc_cell">{%TotalConfirmed40%}</th>
+                    <th class="tr_cell">{%TotalRecovered40%}</th>
+                    <th class="td_cell">{%TotalDeaths40%}</th>
+                    <th class="nc_cell">{%NewConfirmed40%}</th>
+                    <th class="nr_cell">{%NewRecovered40%}</th>
+                    <th class="nd_cell">{%NewDeaths40%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country41%}</th>
+                    <th class="tc_cell">{%TotalConfirmed41%}</th>
+                    <th class="tr_cell">{%TotalRecovered41%}</th>
+                    <th class="td_cell">{%TotalDeaths41%}</th>
+                    <th class="nc_cell">{%NewConfirmed41%}</th>
+                    <th class="nr_cell">{%NewRecovered41%}</th>
+                    <th class="nd_cell">{%NewDeaths41%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country42%}</th>
+                    <th class="tc_cell">{%TotalConfirmed42%}</th>
+                    <th class="tr_cell">{%TotalRecovered42%}</th>
+                    <th class="td_cell">{%TotalDeaths42%}</th>
+                    <th class="nc_cell">{%NewConfirmed42%}</th>
+                    <th class="nr_cell">{%NewRecovered42%}</th>
+                    <th class="nd_cell">{%NewDeaths42%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country43%}</th>
+                    <th class="tc_cell">{%TotalConfirmed43%}</th>
+                    <th class="tr_cell">{%TotalRecovered43%}</th>
+                    <th class="td_cell">{%TotalDeaths43%}</th>
+                    <th class="nc_cell">{%NewConfirmed43%}</th>
+                    <th class="nr_cell">{%NewRecovered43%}</th>
+                    <th class="nd_cell">{%NewDeaths43%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country44%}</th>
+                    <th class="tc_cell">{%TotalConfirmed44%}</th>
+                    <th class="tr_cell">{%TotalRecovered44%}</th>
+                    <th class="td_cell">{%TotalDeaths44%}</th>
+                    <th class="nc_cell">{%NewConfirmed44%}</th>
+                    <th class="nr_cell">{%NewRecovered44%}</th>
+                    <th class="nd_cell">{%NewDeaths44%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country45%}</th>
+                    <th class="tc_cell">{%TotalConfirmed45%}</th>
+                    <th class="tr_cell">{%TotalRecovered45%}</th>
+                    <th class="td_cell">{%TotalDeaths45%}</th>
+                    <th class="nc_cell">{%NewConfirmed45%}</th>
+                    <th class="nr_cell">{%NewRecovered45%}</th>
+                    <th class="nd_cell">{%NewDeaths45%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country46%}</th>
+                    <th class="tc_cell">{%TotalConfirmed46%}</th>
+                    <th class="tr_cell">{%TotalRecovered46%}</th>
+                    <th class="td_cell">{%TotalDeaths46%}</th>
+                    <th class="nc_cell">{%NewConfirmed46%}</th>
+                    <th class="nr_cell">{%NewRecovered46%}</th>
+                    <th class="nd_cell">{%NewDeaths46%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country47%}</th>
+                    <th class="tc_cell">{%TotalConfirmed47%}</th>
+                    <th class="tr_cell">{%TotalRecovered47%}</th>
+                    <th class="td_cell">{%TotalDeaths47%}</th>
+                    <th class="nc_cell">{%NewConfirmed47%}</th>
+                    <th class="nr_cell">{%NewRecovered47%}</th>
+                    <th class="nd_cell">{%NewDeaths47%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country48%}</th>
+                    <th class="tc_cell">{%TotalConfirmed48%}</th>
+                    <th class="tr_cell">{%TotalRecovered48%}</th>
+                    <th class="td_cell">{%TotalDeaths48%}</th>
+                    <th class="nc_cell">{%NewConfirmed48%}</th>
+                    <th class="nr_cell">{%NewRecovered48%}</th>
+                    <th class="nd_cell">{%NewDeaths48%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country49%}</th>
+                    <th class="tc_cell">{%TotalConfirmed49%}</th>
+                    <th class="tr_cell">{%TotalRecovered49%}</th>
+                    <th class="td_cell">{%TotalDeaths49%}</th>
+                    <th class="nc_cell">{%NewConfirmed49%}</th>
+                    <th class="nr_cell">{%NewRecovered49%}</th>
+                    <th class="nd_cell">{%NewDeaths49%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country50%}</th>
+                    <th class="tc_cell">{%TotalConfirmed50%}</th>
+                    <th class="tr_cell">{%TotalRecovered50%}</th>
+                    <th class="td_cell">{%TotalDeaths50%}</th>
+                    <th class="nc_cell">{%NewConfirmed50%}</th>
+                    <th class="nr_cell">{%NewRecovered50%}</th>
+                    <th class="nd_cell">{%NewDeaths50%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country51%}</th>
+                    <th class="tc_cell">{%TotalConfirmed51%}</th>
+                    <th class="tr_cell">{%TotalRecovered51%}</th>
+                    <th class="td_cell">{%TotalDeaths51%}</th>
+                    <th class="nc_cell">{%NewConfirmed51%}</th>
+                    <th class="nr_cell">{%NewRecovered51%}</th>
+                    <th class="nd_cell">{%NewDeaths51%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country52%}</th>
+                    <th class="tc_cell">{%TotalConfirmed52%}</th>
+                    <th class="tr_cell">{%TotalRecovered52%}</th>
+                    <th class="td_cell">{%TotalDeaths52%}</th>
+                    <th class="nc_cell">{%NewConfirmed52%}</th>
+                    <th class="nr_cell">{%NewRecovered52%}</th>
+                    <th class="nd_cell">{%NewDeaths52%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country53%}</th>
+                    <th class="tc_cell">{%TotalConfirmed53%}</th>
+                    <th class="tr_cell">{%TotalRecovered53%}</th>
+                    <th class="td_cell">{%TotalDeaths53%}</th>
+                    <th class="nc_cell">{%NewConfirmed53%}</th>
+                    <th class="nr_cell">{%NewRecovered53%}</th>
+                    <th class="nd_cell">{%NewDeaths53%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country54%}</th>
+                    <th class="tc_cell">{%TotalConfirmed54%}</th>
+                    <th class="tr_cell">{%TotalRecovered54%}</th>
+                    <th class="td_cell">{%TotalDeaths54%}</th>
+                    <th class="nc_cell">{%NewConfirmed54%}</th>
+                    <th class="nr_cell">{%NewRecovered54%}</th>
+                    <th class="nd_cell">{%NewDeaths54%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country55%}</th>
+                    <th class="tc_cell">{%TotalConfirmed55%}</th>
+                    <th class="tr_cell">{%TotalRecovered55%}</th>
+                    <th class="td_cell">{%TotalDeaths55%}</th>
+                    <th class="nc_cell">{%NewConfirmed55%}</th>
+                    <th class="nr_cell">{%NewRecovered55%}</th>
+                    <th class="nd_cell">{%NewDeaths55%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country56%}</th>
+                    <th class="tc_cell">{%TotalConfirmed56%}</th>
+                    <th class="tr_cell">{%TotalRecovered56%}</th>
+                    <th class="td_cell">{%TotalDeaths56%}</th>
+                    <th class="nc_cell">{%NewConfirmed56%}</th>
+                    <th class="nr_cell">{%NewRecovered56%}</th>
+                    <th class="nd_cell">{%NewDeaths56%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country57%}</th>
+                    <th class="tc_cell">{%TotalConfirmed57%}</th>
+                    <th class="tr_cell">{%TotalRecovered57%}</th>
+                    <th class="td_cell">{%TotalDeaths57%}</th>
+                    <th class="nc_cell">{%NewConfirmed57%}</th>
+                    <th class="nr_cell">{%NewRecovered57%}</th>
+                    <th class="nd_cell">{%NewDeaths57%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country58%}</th>
+                    <th class="tc_cell">{%TotalConfirmed58%}</th>
+                    <th class="tr_cell">{%TotalRecovered58%}</th>
+                    <th class="td_cell">{%TotalDeaths58%}</th>
+                    <th class="nc_cell">{%NewConfirmed58%}</th>
+                    <th class="nr_cell">{%NewRecovered58%}</th>
+                    <th class="nd_cell">{%NewDeaths58%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country59%}</th>
+                    <th class="tc_cell">{%TotalConfirmed59%}</th>
+                    <th class="tr_cell">{%TotalRecovered59%}</th>
+                    <th class="td_cell">{%TotalDeaths59%}</th>
+                    <th class="nc_cell">{%NewConfirmed59%}</th>
+                    <th class="nr_cell">{%NewRecovered59%}</th>
+                    <th class="nd_cell">{%NewDeaths59%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country60%}</th>
+                    <th class="tc_cell">{%TotalConfirmed60%}</th>
+                    <th class="tr_cell">{%TotalRecovered60%}</th>
+                    <th class="td_cell">{%TotalDeaths60%}</th>
+                    <th class="nc_cell">{%NewConfirmed60%}</th>
+                    <th class="nr_cell">{%NewRecovered60%}</th>
+                    <th class="nd_cell">{%NewDeaths60%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country61%}</th>
+                    <th class="tc_cell">{%TotalConfirmed61%}</th>
+                    <th class="tr_cell">{%TotalRecovered61%}</th>
+                    <th class="td_cell">{%TotalDeaths61%}</th>
+                    <th class="nc_cell">{%NewConfirmed61%}</th>
+                    <th class="nr_cell">{%NewRecovered61%}</th>
+                    <th class="nd_cell">{%NewDeaths61%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country62%}</th>
+                    <th class="tc_cell">{%TotalConfirmed62%}</th>
+                    <th class="tr_cell">{%TotalRecovered62%}</th>
+                    <th class="td_cell">{%TotalDeaths62%}</th>
+                    <th class="nc_cell">{%NewConfirmed62%}</th>
+                    <th class="nr_cell">{%NewRecovered62%}</th>
+                    <th class="nd_cell">{%NewDeaths62%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country63%}</th>
+                    <th class="tc_cell">{%TotalConfirmed63%}</th>
+                    <th class="tr_cell">{%TotalRecovered63%}</th>
+                    <th class="td_cell">{%TotalDeaths63%}</th>
+                    <th class="nc_cell">{%NewConfirmed63%}</th>
+                    <th class="nr_cell">{%NewRecovered63%}</th>
+                    <th class="nd_cell">{%NewDeaths63%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country64%}</th>
+                    <th class="tc_cell">{%TotalConfirmed64%}</th>
+                    <th class="tr_cell">{%TotalRecovered64%}</th>
+                    <th class="td_cell">{%TotalDeaths64%}</th>
+                    <th class="nc_cell">{%NewConfirmed64%}</th>
+                    <th class="nr_cell">{%NewRecovered64%}</th>
+                    <th class="nd_cell">{%NewDeaths64%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country65%}</th>
+                    <th class="tc_cell">{%TotalConfirmed65%}</th>
+                    <th class="tr_cell">{%TotalRecovered65%}</th>
+                    <th class="td_cell">{%TotalDeaths65%}</th>
+                    <th class="nc_cell">{%NewConfirmed65%}</th>
+                    <th class="nr_cell">{%NewRecovered65%}</th>
+                    <th class="nd_cell">{%NewDeaths65%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country66%}</th>
+                    <th class="tc_cell">{%TotalConfirmed66%}</th>
+                    <th class="tr_cell">{%TotalRecovered66%}</th>
+                    <th class="td_cell">{%TotalDeaths66%}</th>
+                    <th class="nc_cell">{%NewConfirmed66%}</th>
+                    <th class="nr_cell">{%NewRecovered66%}</th>
+                    <th class="nd_cell">{%NewDeaths66%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country67%}</th>
+                    <th class="tc_cell">{%TotalConfirmed67%}</th>
+                    <th class="tr_cell">{%TotalRecovered67%}</th>
+                    <th class="td_cell">{%TotalDeaths67%}</th>
+                    <th class="nc_cell">{%NewConfirmed67%}</th>
+                    <th class="nr_cell">{%NewRecovered67%}</th>
+                    <th class="nd_cell">{%NewDeaths67%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country68%}</th>
+                    <th class="tc_cell">{%TotalConfirmed68%}</th>
+                    <th class="tr_cell">{%TotalRecovered68%}</th>
+                    <th class="td_cell">{%TotalDeaths68%}</th>
+                    <th class="nc_cell">{%NewConfirmed68%}</th>
+                    <th class="nr_cell">{%NewRecovered68%}</th>
+                    <th class="nd_cell">{%NewDeaths68%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country69%}</th>
+                    <th class="tc_cell">{%TotalConfirmed69%}</th>
+                    <th class="tr_cell">{%TotalRecovered69%}</th>
+                    <th class="td_cell">{%TotalDeaths69%}</th>
+                    <th class="nc_cell">{%NewConfirmed69%}</th>
+                    <th class="nr_cell">{%NewRecovered69%}</th>
+                    <th class="nd_cell">{%NewDeaths69%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country70%}</th>
+                    <th class="tc_cell">{%TotalConfirmed70%}</th>
+                    <th class="tr_cell">{%TotalRecovered70%}</th>
+                    <th class="td_cell">{%TotalDeaths70%}</th>
+                    <th class="nc_cell">{%NewConfirmed70%}</th>
+                    <th class="nr_cell">{%NewRecovered70%}</th>
+                    <th class="nd_cell">{%NewDeaths70%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country71%}</th>
+                    <th class="tc_cell">{%TotalConfirmed71%}</th>
+                    <th class="tr_cell">{%TotalRecovered71%}</th>
+                    <th class="td_cell">{%TotalDeaths71%}</th>
+                    <th class="nc_cell">{%NewConfirmed71%}</th>
+                    <th class="nr_cell">{%NewRecovered71%}</th>
+                    <th class="nd_cell">{%NewDeaths71%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country72%}</th>
+                    <th class="tc_cell">{%TotalConfirmed72%}</th>
+                    <th class="tr_cell">{%TotalRecovered72%}</th>
+                    <th class="td_cell">{%TotalDeaths72%}</th>
+                    <th class="nc_cell">{%NewConfirmed72%}</th>
+                    <th class="nr_cell">{%NewRecovered72%}</th>
+                    <th class="nd_cell">{%NewDeaths72%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country73%}</th>
+                    <th class="tc_cell">{%TotalConfirmed73%}</th>
+                    <th class="tr_cell">{%TotalRecovered73%}</th>
+                    <th class="td_cell">{%TotalDeaths73%}</th>
+                    <th class="nc_cell">{%NewConfirmed73%}</th>
+                    <th class="nr_cell">{%NewRecovered73%}</th>
+                    <th class="nd_cell">{%NewDeaths73%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country74%}</th>
+                    <th class="tc_cell">{%TotalConfirmed74%}</th>
+                    <th class="tr_cell">{%TotalRecovered74%}</th>
+                    <th class="td_cell">{%TotalDeaths74%}</th>
+                    <th class="nc_cell">{%NewConfirmed74%}</th>
+                    <th class="nr_cell">{%NewRecovered74%}</th>
+                    <th class="nd_cell">{%NewDeaths74%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country75%}</th>
+                    <th class="tc_cell">{%TotalConfirmed75%}</th>
+                    <th class="tr_cell">{%TotalRecovered75%}</th>
+                    <th class="td_cell">{%TotalDeaths75%}</th>
+                    <th class="nc_cell">{%NewConfirmed75%}</th>
+                    <th class="nr_cell">{%NewRecovered75%}</th>
+                    <th class="nd_cell">{%NewDeaths75%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country76%}</th>
+                    <th class="tc_cell">{%TotalConfirmed76%}</th>
+                    <th class="tr_cell">{%TotalRecovered76%}</th>
+                    <th class="td_cell">{%TotalDeaths76%}</th>
+                    <th class="nc_cell">{%NewConfirmed76%}</th>
+                    <th class="nr_cell">{%NewRecovered76%}</th>
+                    <th class="nd_cell">{%NewDeaths76%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country77%}</th>
+                    <th class="tc_cell">{%TotalConfirmed77%}</th>
+                    <th class="tr_cell">{%TotalRecovered77%}</th>
+                    <th class="td_cell">{%TotalDeaths77%}</th>
+                    <th class="nc_cell">{%NewConfirmed77%}</th>
+                    <th class="nr_cell">{%NewRecovered77%}</th>
+                    <th class="nd_cell">{%NewDeaths77%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country78%}</th>
+                    <th class="tc_cell">{%TotalConfirmed78%}</th>
+                    <th class="tr_cell">{%TotalRecovered78%}</th>
+                    <th class="td_cell">{%TotalDeaths78%}</th>
+                    <th class="nc_cell">{%NewConfirmed78%}</th>
+                    <th class="nr_cell">{%NewRecovered78%}</th>
+                    <th class="nd_cell">{%NewDeaths78%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country79%}</th>
+                    <th class="tc_cell">{%TotalConfirmed79%}</th>
+                    <th class="tr_cell">{%TotalRecovered79%}</th>
+                    <th class="td_cell">{%TotalDeaths79%}</th>
+                    <th class="nc_cell">{%NewConfirmed79%}</th>
+                    <th class="nr_cell">{%NewRecovered79%}</th>
+                    <th class="nd_cell">{%NewDeaths79%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country80%}</th>
+                    <th class="tc_cell">{%TotalConfirmed80%}</th>
+                    <th class="tr_cell">{%TotalRecovered80%}</th>
+                    <th class="td_cell">{%TotalDeaths80%}</th>
+                    <th class="nc_cell">{%NewConfirmed80%}</th>
+                    <th class="nr_cell">{%NewRecovered80%}</th>
+                    <th class="nd_cell">{%NewDeaths80%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country81%}</th>
+                    <th class="tc_cell">{%TotalConfirmed81%}</th>
+                    <th class="tr_cell">{%TotalRecovered81%}</th>
+                    <th class="td_cell">{%TotalDeaths81%}</th>
+                    <th class="nc_cell">{%NewConfirmed81%}</th>
+                    <th class="nr_cell">{%NewRecovered81%}</th>
+                    <th class="nd_cell">{%NewDeaths81%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country82%}</th>
+                    <th class="tc_cell">{%TotalConfirmed82%}</th>
+                    <th class="tr_cell">{%TotalRecovered82%}</th>
+                    <th class="td_cell">{%TotalDeaths82%}</th>
+                    <th class="nc_cell">{%NewConfirmed82%}</th>
+                    <th class="nr_cell">{%NewRecovered82%}</th>
+                    <th class="nd_cell">{%NewDeaths82%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country83%}</th>
+                    <th class="tc_cell">{%TotalConfirmed83%}</th>
+                    <th class="tr_cell">{%TotalRecovered83%}</th>
+                    <th class="td_cell">{%TotalDeaths83%}</th>
+                    <th class="nc_cell">{%NewConfirmed83%}</th>
+                    <th class="nr_cell">{%NewRecovered83%}</th>
+                    <th class="nd_cell">{%NewDeaths83%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country84%}</th>
+                    <th class="tc_cell">{%TotalConfirmed84%}</th>
+                    <th class="tr_cell">{%TotalRecovered84%}</th>
+                    <th class="td_cell">{%TotalDeaths84%}</th>
+                    <th class="nc_cell">{%NewConfirmed84%}</th>
+                    <th class="nr_cell">{%NewRecovered84%}</th>
+                    <th class="nd_cell">{%NewDeaths84%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country85%}</th>
+                    <th class="tc_cell">{%TotalConfirmed85%}</th>
+                    <th class="tr_cell">{%TotalRecovered85%}</th>
+                    <th class="td_cell">{%TotalDeaths85%}</th>
+                    <th class="nc_cell">{%NewConfirmed85%}</th>
+                    <th class="nr_cell">{%NewRecovered85%}</th>
+                    <th class="nd_cell">{%NewDeaths85%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country86%}</th>
+                    <th class="tc_cell">{%TotalConfirmed86%}</th>
+                    <th class="tr_cell">{%TotalRecovered86%}</th>
+                    <th class="td_cell">{%TotalDeaths86%}</th>
+                    <th class="nc_cell">{%NewConfirmed86%}</th>
+                    <th class="nr_cell">{%NewRecovered86%}</th>
+                    <th class="nd_cell">{%NewDeaths86%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country87%}</th>
+                    <th class="tc_cell">{%TotalConfirmed87%}</th>
+                    <th class="tr_cell">{%TotalRecovered87%}</th>
+                    <th class="td_cell">{%TotalDeaths87%}</th>
+                    <th class="nc_cell">{%NewConfirmed87%}</th>
+                    <th class="nr_cell">{%NewRecovered87%}</th>
+                    <th class="nd_cell">{%NewDeaths87%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country88%}</th>
+                    <th class="tc_cell">{%TotalConfirmed88%}</th>
+                    <th class="tr_cell">{%TotalRecovered88%}</th>
+                    <th class="td_cell">{%TotalDeaths88%}</th>
+                    <th class="nc_cell">{%NewConfirmed88%}</th>
+                    <th class="nr_cell">{%NewRecovered88%}</th>
+                    <th class="nd_cell">{%NewDeaths88%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country89%}</th>
+                    <th class="tc_cell">{%TotalConfirmed89%}</th>
+                    <th class="tr_cell">{%TotalRecovered89%}</th>
+                    <th class="td_cell">{%TotalDeaths89%}</th>
+                    <th class="nc_cell">{%NewConfirmed89%}</th>
+                    <th class="nr_cell">{%NewRecovered89%}</th>
+                    <th class="nd_cell">{%NewDeaths89%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country90%}</th>
+                    <th class="tc_cell">{%TotalConfirmed90%}</th>
+                    <th class="tr_cell">{%TotalRecovered90%}</th>
+                    <th class="td_cell">{%TotalDeaths90%}</th>
+                    <th class="nc_cell">{%NewConfirmed90%}</th>
+                    <th class="nr_cell">{%NewRecovered90%}</th>
+                    <th class="nd_cell">{%NewDeaths90%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country91%}</th>
+                    <th class="tc_cell">{%TotalConfirmed91%}</th>
+                    <th class="tr_cell">{%TotalRecovered91%}</th>
+                    <th class="td_cell">{%TotalDeaths91%}</th>
+                    <th class="nc_cell">{%NewConfirmed91%}</th>
+                    <th class="nr_cell">{%NewRecovered91%}</th>
+                    <th class="nd_cell">{%NewDeaths91%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country92%}</th>
+                    <th class="tc_cell">{%TotalConfirmed92%}</th>
+                    <th class="tr_cell">{%TotalRecovered92%}</th>
+                    <th class="td_cell">{%TotalDeaths92%}</th>
+                    <th class="nc_cell">{%NewConfirmed92%}</th>
+                    <th class="nr_cell">{%NewRecovered92%}</th>
+                    <th class="nd_cell">{%NewDeaths92%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country93%}</th>
+                    <th class="tc_cell">{%TotalConfirmed93%}</th>
+                    <th class="tr_cell">{%TotalRecovered93%}</th>
+                    <th class="td_cell">{%TotalDeaths93%}</th>
+                    <th class="nc_cell">{%NewConfirmed93%}</th>
+                    <th class="nr_cell">{%NewRecovered93%}</th>
+                    <th class="nd_cell">{%NewDeaths93%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country94%}</th>
+                    <th class="tc_cell">{%TotalConfirmed94%}</th>
+                    <th class="tr_cell">{%TotalRecovered94%}</th>
+                    <th class="td_cell">{%TotalDeaths94%}</th>
+                    <th class="nc_cell">{%NewConfirmed94%}</th>
+                    <th class="nr_cell">{%NewRecovered94%}</th>
+                    <th class="nd_cell">{%NewDeaths94%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country95%}</th>
+                    <th class="tc_cell">{%TotalConfirmed95%}</th>
+                    <th class="tr_cell">{%TotalRecovered95%}</th>
+                    <th class="td_cell">{%TotalDeaths95%}</th>
+                    <th class="nc_cell">{%NewConfirmed95%}</th>
+                    <th class="nr_cell">{%NewRecovered95%}</th>
+                    <th class="nd_cell">{%NewDeaths95%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country96%}</th>
+                    <th class="tc_cell">{%TotalConfirmed96%}</th>
+                    <th class="tr_cell">{%TotalRecovered96%}</th>
+                    <th class="td_cell">{%TotalDeaths96%}</th>
+                    <th class="nc_cell">{%NewConfirmed96%}</th>
+                    <th class="nr_cell">{%NewRecovered96%}</th>
+                    <th class="nd_cell">{%NewDeaths96%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country97%}</th>
+                    <th class="tc_cell">{%TotalConfirmed97%}</th>
+                    <th class="tr_cell">{%TotalRecovered97%}</th>
+                    <th class="td_cell">{%TotalDeaths97%}</th>
+                    <th class="nc_cell">{%NewConfirmed97%}</th>
+                    <th class="nr_cell">{%NewRecovered97%}</th>
+                    <th class="nd_cell">{%NewDeaths97%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country98%}</th>
+                    <th class="tc_cell">{%TotalConfirmed98%}</th>
+                    <th class="tr_cell">{%TotalRecovered98%}</th>
+                    <th class="td_cell">{%TotalDeaths98%}</th>
+                    <th class="nc_cell">{%NewConfirmed98%}</th>
+                    <th class="nr_cell">{%NewRecovered98%}</th>
+                    <th class="nd_cell">{%NewDeaths98%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country99%}</th>
+                    <th class="tc_cell">{%TotalConfirmed99%}</th>
+                    <th class="tr_cell">{%TotalRecovered99%}</th>
+                    <th class="td_cell">{%TotalDeaths99%}</th>
+                    <th class="nc_cell">{%NewConfirmed99%}</th>
+                    <th class="nr_cell">{%NewRecovered99%}</th>
+                    <th class="nd_cell">{%NewDeaths99%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country100%}</th>
+                    <th class="tc_cell">{%TotalConfirmed100%}</th>
+                    <th class="tr_cell">{%TotalRecovered100%}</th>
+                    <th class="td_cell">{%TotalDeaths100%}</th>
+                    <th class="nc_cell">{%NewConfirmed100%}</th>
+                    <th class="nr_cell">{%NewRecovered100%}</th>
+                    <th class="nd_cell">{%NewDeaths100%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country101%}</th>
+                    <th class="tc_cell">{%TotalConfirmed101%}</th>
+                    <th class="tr_cell">{%TotalRecovered101%}</th>
+                    <th class="td_cell">{%TotalDeaths101%}</th>
+                    <th class="nc_cell">{%NewConfirmed101%}</th>
+                    <th class="nr_cell">{%NewRecovered101%}</th>
+                    <th class="nd_cell">{%NewDeaths101%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country102%}</th>
+                    <th class="tc_cell">{%TotalConfirmed102%}</th>
+                    <th class="tr_cell">{%TotalRecovered102%}</th>
+                    <th class="td_cell">{%TotalDeaths102%}</th>
+                    <th class="nc_cell">{%NewConfirmed102%}</th>
+                    <th class="nr_cell">{%NewRecovered102%}</th>
+                    <th class="nd_cell">{%NewDeaths102%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country103%}</th>
+                    <th class="tc_cell">{%TotalConfirmed103%}</th>
+                    <th class="tr_cell">{%TotalRecovered103%}</th>
+                    <th class="td_cell">{%TotalDeaths103%}</th>
+                    <th class="nc_cell">{%NewConfirmed103%}</th>
+                    <th class="nr_cell">{%NewRecovered103%}</th>
+                    <th class="nd_cell">{%NewDeaths103%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country104%}</th>
+                    <th class="tc_cell">{%TotalConfirmed104%}</th>
+                    <th class="tr_cell">{%TotalRecovered104%}</th>
+                    <th class="td_cell">{%TotalDeaths104%}</th>
+                    <th class="nc_cell">{%NewConfirmed104%}</th>
+                    <th class="nr_cell">{%NewRecovered104%}</th>
+                    <th class="nd_cell">{%NewDeaths104%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country105%}</th>
+                    <th class="tc_cell">{%TotalConfirmed105%}</th>
+                    <th class="tr_cell">{%TotalRecovered105%}</th>
+                    <th class="td_cell">{%TotalDeaths105%}</th>
+                    <th class="nc_cell">{%NewConfirmed105%}</th>
+                    <th class="nr_cell">{%NewRecovered105%}</th>
+                    <th class="nd_cell">{%NewDeaths105%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country106%}</th>
+                    <th class="tc_cell">{%TotalConfirmed106%}</th>
+                    <th class="tr_cell">{%TotalRecovered106%}</th>
+                    <th class="td_cell">{%TotalDeaths106%}</th>
+                    <th class="nc_cell">{%NewConfirmed106%}</th>
+                    <th class="nr_cell">{%NewRecovered106%}</th>
+                    <th class="nd_cell">{%NewDeaths106%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country107%}</th>
+                    <th class="tc_cell">{%TotalConfirmed107%}</th>
+                    <th class="tr_cell">{%TotalRecovered107%}</th>
+                    <th class="td_cell">{%TotalDeaths107%}</th>
+                    <th class="nc_cell">{%NewConfirmed107%}</th>
+                    <th class="nr_cell">{%NewRecovered107%}</th>
+                    <th class="nd_cell">{%NewDeaths107%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country108%}</th>
+                    <th class="tc_cell">{%TotalConfirmed108%}</th>
+                    <th class="tr_cell">{%TotalRecovered108%}</th>
+                    <th class="td_cell">{%TotalDeaths108%}</th>
+                    <th class="nc_cell">{%NewConfirmed108%}</th>
+                    <th class="nr_cell">{%NewRecovered108%}</th>
+                    <th class="nd_cell">{%NewDeaths108%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country109%}</th>
+                    <th class="tc_cell">{%TotalConfirmed109%}</th>
+                    <th class="tr_cell">{%TotalRecovered109%}</th>
+                    <th class="td_cell">{%TotalDeaths109%}</th>
+                    <th class="nc_cell">{%NewConfirmed109%}</th>
+                    <th class="nr_cell">{%NewRecovered109%}</th>
+                    <th class="nd_cell">{%NewDeaths109%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country110%}</th>
+                    <th class="tc_cell">{%TotalConfirmed110%}</th>
+                    <th class="tr_cell">{%TotalRecovered110%}</th>
+                    <th class="td_cell">{%TotalDeaths110%}</th>
+                    <th class="nc_cell">{%NewConfirmed110%}</th>
+                    <th class="nr_cell">{%NewRecovered110%}</th>
+                    <th class="nd_cell">{%NewDeaths110%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country111%}</th>
+                    <th class="tc_cell">{%TotalConfirmed111%}</th>
+                    <th class="tr_cell">{%TotalRecovered111%}</th>
+                    <th class="td_cell">{%TotalDeaths111%}</th>
+                    <th class="nc_cell">{%NewConfirmed111%}</th>
+                    <th class="nr_cell">{%NewRecovered111%}</th>
+                    <th class="nd_cell">{%NewDeaths111%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country112%}</th>
+                    <th class="tc_cell">{%TotalConfirmed112%}</th>
+                    <th class="tr_cell">{%TotalRecovered112%}</th>
+                    <th class="td_cell">{%TotalDeaths112%}</th>
+                    <th class="nc_cell">{%NewConfirmed112%}</th>
+                    <th class="nr_cell">{%NewRecovered112%}</th>
+                    <th class="nd_cell">{%NewDeaths112%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country113%}</th>
+                    <th class="tc_cell">{%TotalConfirmed113%}</th>
+                    <th class="tr_cell">{%TotalRecovered113%}</th>
+                    <th class="td_cell">{%TotalDeaths113%}</th>
+                    <th class="nc_cell">{%NewConfirmed113%}</th>
+                    <th class="nr_cell">{%NewRecovered113%}</th>
+                    <th class="nd_cell">{%NewDeaths113%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country114%}</th>
+                    <th class="tc_cell">{%TotalConfirmed114%}</th>
+                    <th class="tr_cell">{%TotalRecovered114%}</th>
+                    <th class="td_cell">{%TotalDeaths114%}</th>
+                    <th class="nc_cell">{%NewConfirmed114%}</th>
+                    <th class="nr_cell">{%NewRecovered114%}</th>
+                    <th class="nd_cell">{%NewDeaths114%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country115%}</th>
+                    <th class="tc_cell">{%TotalConfirmed115%}</th>
+                    <th class="tr_cell">{%TotalRecovered115%}</th>
+                    <th class="td_cell">{%TotalDeaths115%}</th>
+                    <th class="nc_cell">{%NewConfirmed115%}</th>
+                    <th class="nr_cell">{%NewRecovered115%}</th>
+                    <th class="nd_cell">{%NewDeaths115%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country116%}</th>
+                    <th class="tc_cell">{%TotalConfirmed116%}</th>
+                    <th class="tr_cell">{%TotalRecovered116%}</th>
+                    <th class="td_cell">{%TotalDeaths116%}</th>
+                    <th class="nc_cell">{%NewConfirmed116%}</th>
+                    <th class="nr_cell">{%NewRecovered116%}</th>
+                    <th class="nd_cell">{%NewDeaths116%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country117%}</th>
+                    <th class="tc_cell">{%TotalConfirmed117%}</th>
+                    <th class="tr_cell">{%TotalRecovered117%}</th>
+                    <th class="td_cell">{%TotalDeaths117%}</th>
+                    <th class="nc_cell">{%NewConfirmed117%}</th>
+                    <th class="nr_cell">{%NewRecovered117%}</th>
+                    <th class="nd_cell">{%NewDeaths117%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country118%}</th>
+                    <th class="tc_cell">{%TotalConfirmed118%}</th>
+                    <th class="tr_cell">{%TotalRecovered118%}</th>
+                    <th class="td_cell">{%TotalDeaths118%}</th>
+                    <th class="nc_cell">{%NewConfirmed118%}</th>
+                    <th class="nr_cell">{%NewRecovered118%}</th>
+                    <th class="nd_cell">{%NewDeaths118%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country119%}</th>
+                    <th class="tc_cell">{%TotalConfirmed119%}</th>
+                    <th class="tr_cell">{%TotalRecovered119%}</th>
+                    <th class="td_cell">{%TotalDeaths119%}</th>
+                    <th class="nc_cell">{%NewConfirmed119%}</th>
+                    <th class="nr_cell">{%NewRecovered119%}</th>
+                    <th class="nd_cell">{%NewDeaths119%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country120%}</th>
+                    <th class="tc_cell">{%TotalConfirmed120%}</th>
+                    <th class="tr_cell">{%TotalRecovered120%}</th>
+                    <th class="td_cell">{%TotalDeaths120%}</th>
+                    <th class="nc_cell">{%NewConfirmed120%}</th>
+                    <th class="nr_cell">{%NewRecovered120%}</th>
+                    <th class="nd_cell">{%NewDeaths120%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country121%}</th>
+                    <th class="tc_cell">{%TotalConfirmed121%}</th>
+                    <th class="tr_cell">{%TotalRecovered121%}</th>
+                    <th class="td_cell">{%TotalDeaths121%}</th>
+                    <th class="nc_cell">{%NewConfirmed121%}</th>
+                    <th class="nr_cell">{%NewRecovered121%}</th>
+                    <th class="nd_cell">{%NewDeaths121%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country122%}</th>
+                    <th class="tc_cell">{%TotalConfirmed122%}</th>
+                    <th class="tr_cell">{%TotalRecovered122%}</th>
+                    <th class="td_cell">{%TotalDeaths122%}</th>
+                    <th class="nc_cell">{%NewConfirmed122%}</th>
+                    <th class="nr_cell">{%NewRecovered122%}</th>
+                    <th class="nd_cell">{%NewDeaths122%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country123%}</th>
+                    <th class="tc_cell">{%TotalConfirmed123%}</th>
+                    <th class="tr_cell">{%TotalRecovered123%}</th>
+                    <th class="td_cell">{%TotalDeaths123%}</th>
+                    <th class="nc_cell">{%NewConfirmed123%}</th>
+                    <th class="nr_cell">{%NewRecovered123%}</th>
+                    <th class="nd_cell">{%NewDeaths123%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country124%}</th>
+                    <th class="tc_cell">{%TotalConfirmed124%}</th>
+                    <th class="tr_cell">{%TotalRecovered124%}</th>
+                    <th class="td_cell">{%TotalDeaths124%}</th>
+                    <th class="nc_cell">{%NewConfirmed124%}</th>
+                    <th class="nr_cell">{%NewRecovered124%}</th>
+                    <th class="nd_cell">{%NewDeaths124%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country125%}</th>
+                    <th class="tc_cell">{%TotalConfirmed125%}</th>
+                    <th class="tr_cell">{%TotalRecovered125%}</th>
+                    <th class="td_cell">{%TotalDeaths125%}</th>
+                    <th class="nc_cell">{%NewConfirmed125%}</th>
+                    <th class="nr_cell">{%NewRecovered125%}</th>
+                    <th class="nd_cell">{%NewDeaths125%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country126%}</th>
+                    <th class="tc_cell">{%TotalConfirmed126%}</th>
+                    <th class="tr_cell">{%TotalRecovered126%}</th>
+                    <th class="td_cell">{%TotalDeaths126%}</th>
+                    <th class="nc_cell">{%NewConfirmed126%}</th>
+                    <th class="nr_cell">{%NewRecovered126%}</th>
+                    <th class="nd_cell">{%NewDeaths126%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country127%}</th>
+                    <th class="tc_cell">{%TotalConfirmed127%}</th>
+                    <th class="tr_cell">{%TotalRecovered127%}</th>
+                    <th class="td_cell">{%TotalDeaths127%}</th>
+                    <th class="nc_cell">{%NewConfirmed127%}</th>
+                    <th class="nr_cell">{%NewRecovered127%}</th>
+                    <th class="nd_cell">{%NewDeaths127%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country128%}</th>
+                    <th class="tc_cell">{%TotalConfirmed128%}</th>
+                    <th class="tr_cell">{%TotalRecovered128%}</th>
+                    <th class="td_cell">{%TotalDeaths128%}</th>
+                    <th class="nc_cell">{%NewConfirmed128%}</th>
+                    <th class="nr_cell">{%NewRecovered128%}</th>
+                    <th class="nd_cell">{%NewDeaths128%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country129%}</th>
+                    <th class="tc_cell">{%TotalConfirmed129%}</th>
+                    <th class="tr_cell">{%TotalRecovered129%}</th>
+                    <th class="td_cell">{%TotalDeaths129%}</th>
+                    <th class="nc_cell">{%NewConfirmed129%}</th>
+                    <th class="nr_cell">{%NewRecovered129%}</th>
+                    <th class="nd_cell">{%NewDeaths129%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country130%}</th>
+                    <th class="tc_cell">{%TotalConfirmed130%}</th>
+                    <th class="tr_cell">{%TotalRecovered130%}</th>
+                    <th class="td_cell">{%TotalDeaths130%}</th>
+                    <th class="nc_cell">{%NewConfirmed130%}</th>
+                    <th class="nr_cell">{%NewRecovered130%}</th>
+                    <th class="nd_cell">{%NewDeaths130%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country131%}</th>
+                    <th class="tc_cell">{%TotalConfirmed131%}</th>
+                    <th class="tr_cell">{%TotalRecovered131%}</th>
+                    <th class="td_cell">{%TotalDeaths131%}</th>
+                    <th class="nc_cell">{%NewConfirmed131%}</th>
+                    <th class="nr_cell">{%NewRecovered131%}</th>
+                    <th class="nd_cell">{%NewDeaths131%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country132%}</th>
+                    <th class="tc_cell">{%TotalConfirmed132%}</th>
+                    <th class="tr_cell">{%TotalRecovered132%}</th>
+                    <th class="td_cell">{%TotalDeaths132%}</th>
+                    <th class="nc_cell">{%NewConfirmed132%}</th>
+                    <th class="nr_cell">{%NewRecovered132%}</th>
+                    <th class="nd_cell">{%NewDeaths132%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country133%}</th>
+                    <th class="tc_cell">{%TotalConfirmed133%}</th>
+                    <th class="tr_cell">{%TotalRecovered133%}</th>
+                    <th class="td_cell">{%TotalDeaths133%}</th>
+                    <th class="nc_cell">{%NewConfirmed133%}</th>
+                    <th class="nr_cell">{%NewRecovered133%}</th>
+                    <th class="nd_cell">{%NewDeaths133%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country134%}</th>
+                    <th class="tc_cell">{%TotalConfirmed134%}</th>
+                    <th class="tr_cell">{%TotalRecovered134%}</th>
+                    <th class="td_cell">{%TotalDeaths134%}</th>
+                    <th class="nc_cell">{%NewConfirmed134%}</th>
+                    <th class="nr_cell">{%NewRecovered134%}</th>
+                    <th class="nd_cell">{%NewDeaths134%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country135%}</th>
+                    <th class="tc_cell">{%TotalConfirmed135%}</th>
+                    <th class="tr_cell">{%TotalRecovered135%}</th>
+                    <th class="td_cell">{%TotalDeaths135%}</th>
+                    <th class="nc_cell">{%NewConfirmed135%}</th>
+                    <th class="nr_cell">{%NewRecovered135%}</th>
+                    <th class="nd_cell">{%NewDeaths135%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country136%}</th>
+                    <th class="tc_cell">{%TotalConfirmed136%}</th>
+                    <th class="tr_cell">{%TotalRecovered136%}</th>
+                    <th class="td_cell">{%TotalDeaths136%}</th>
+                    <th class="nc_cell">{%NewConfirmed136%}</th>
+                    <th class="nr_cell">{%NewRecovered136%}</th>
+                    <th class="nd_cell">{%NewDeaths136%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country137%}</th>
+                    <th class="tc_cell">{%TotalConfirmed137%}</th>
+                    <th class="tr_cell">{%TotalRecovered137%}</th>
+                    <th class="td_cell">{%TotalDeaths137%}</th>
+                    <th class="nc_cell">{%NewConfirmed137%}</th>
+                    <th class="nr_cell">{%NewRecovered137%}</th>
+                    <th class="nd_cell">{%NewDeaths137%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country138%}</th>
+                    <th class="tc_cell">{%TotalConfirmed138%}</th>
+                    <th class="tr_cell">{%TotalRecovered138%}</th>
+                    <th class="td_cell">{%TotalDeaths138%}</th>
+                    <th class="nc_cell">{%NewConfirmed138%}</th>
+                    <th class="nr_cell">{%NewRecovered138%}</th>
+                    <th class="nd_cell">{%NewDeaths138%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country139%}</th>
+                    <th class="tc_cell">{%TotalConfirmed139%}</th>
+                    <th class="tr_cell">{%TotalRecovered139%}</th>
+                    <th class="td_cell">{%TotalDeaths139%}</th>
+                    <th class="nc_cell">{%NewConfirmed139%}</th>
+                    <th class="nr_cell">{%NewRecovered139%}</th>
+                    <th class="nd_cell">{%NewDeaths139%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country140%}</th>
+                    <th class="tc_cell">{%TotalConfirmed140%}</th>
+                    <th class="tr_cell">{%TotalRecovered140%}</th>
+                    <th class="td_cell">{%TotalDeaths140%}</th>
+                    <th class="nc_cell">{%NewConfirmed140%}</th>
+                    <th class="nr_cell">{%NewRecovered140%}</th>
+                    <th class="nd_cell">{%NewDeaths140%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country141%}</th>
+                    <th class="tc_cell">{%TotalConfirmed141%}</th>
+                    <th class="tr_cell">{%TotalRecovered141%}</th>
+                    <th class="td_cell">{%TotalDeaths141%}</th>
+                    <th class="nc_cell">{%NewConfirmed141%}</th>
+                    <th class="nr_cell">{%NewRecovered141%}</th>
+                    <th class="nd_cell">{%NewDeaths141%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country142%}</th>
+                    <th class="tc_cell">{%TotalConfirmed142%}</th>
+                    <th class="tr_cell">{%TotalRecovered142%}</th>
+                    <th class="td_cell">{%TotalDeaths142%}</th>
+                    <th class="nc_cell">{%NewConfirmed142%}</th>
+                    <th class="nr_cell">{%NewRecovered142%}</th>
+                    <th class="nd_cell">{%NewDeaths142%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country143%}</th>
+                    <th class="tc_cell">{%TotalConfirmed143%}</th>
+                    <th class="tr_cell">{%TotalRecovered143%}</th>
+                    <th class="td_cell">{%TotalDeaths143%}</th>
+                    <th class="nc_cell">{%NewConfirmed143%}</th>
+                    <th class="nr_cell">{%NewRecovered143%}</th>
+                    <th class="nd_cell">{%NewDeaths143%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country144%}</th>
+                    <th class="tc_cell">{%TotalConfirmed144%}</th>
+                    <th class="tr_cell">{%TotalRecovered144%}</th>
+                    <th class="td_cell">{%TotalDeaths144%}</th>
+                    <th class="nc_cell">{%NewConfirmed144%}</th>
+                    <th class="nr_cell">{%NewRecovered144%}</th>
+                    <th class="nd_cell">{%NewDeaths144%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country145%}</th>
+                    <th class="tc_cell">{%TotalConfirmed145%}</th>
+                    <th class="tr_cell">{%TotalRecovered145%}</th>
+                    <th class="td_cell">{%TotalDeaths145%}</th>
+                    <th class="nc_cell">{%NewConfirmed145%}</th>
+                    <th class="nr_cell">{%NewRecovered145%}</th>
+                    <th class="nd_cell">{%NewDeaths145%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country146%}</th>
+                    <th class="tc_cell">{%TotalConfirmed146%}</th>
+                    <th class="tr_cell">{%TotalRecovered146%}</th>
+                    <th class="td_cell">{%TotalDeaths146%}</th>
+                    <th class="nc_cell">{%NewConfirmed146%}</th>
+                    <th class="nr_cell">{%NewRecovered146%}</th>
+                    <th class="nd_cell">{%NewDeaths146%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country147%}</th>
+                    <th class="tc_cell">{%TotalConfirmed147%}</th>
+                    <th class="tr_cell">{%TotalRecovered147%}</th>
+                    <th class="td_cell">{%TotalDeaths147%}</th>
+                    <th class="nc_cell">{%NewConfirmed147%}</th>
+                    <th class="nr_cell">{%NewRecovered147%}</th>
+                    <th class="nd_cell">{%NewDeaths147%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country148%}</th>
+                    <th class="tc_cell">{%TotalConfirmed148%}</th>
+                    <th class="tr_cell">{%TotalRecovered148%}</th>
+                    <th class="td_cell">{%TotalDeaths148%}</th>
+                    <th class="nc_cell">{%NewConfirmed148%}</th>
+                    <th class="nr_cell">{%NewRecovered148%}</th>
+                    <th class="nd_cell">{%NewDeaths148%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country149%}</th>
+                    <th class="tc_cell">{%TotalConfirmed149%}</th>
+                    <th class="tr_cell">{%TotalRecovered149%}</th>
+                    <th class="td_cell">{%TotalDeaths149%}</th>
+                    <th class="nc_cell">{%NewConfirmed149%}</th>
+                    <th class="nr_cell">{%NewRecovered149%}</th>
+                    <th class="nd_cell">{%NewDeaths149%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country150%}</th>
+                    <th class="tc_cell">{%TotalConfirmed150%}</th>
+                    <th class="tr_cell">{%TotalRecovered150%}</th>
+                    <th class="td_cell">{%TotalDeaths150%}</th>
+                    <th class="nc_cell">{%NewConfirmed150%}</th>
+                    <th class="nr_cell">{%NewRecovered150%}</th>
+                    <th class="nd_cell">{%NewDeaths150%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country151%}</th>
+                    <th class="tc_cell">{%TotalConfirmed151%}</th>
+                    <th class="tr_cell">{%TotalRecovered151%}</th>
+                    <th class="td_cell">{%TotalDeaths151%}</th>
+                    <th class="nc_cell">{%NewConfirmed151%}</th>
+                    <th class="nr_cell">{%NewRecovered151%}</th>
+                    <th class="nd_cell">{%NewDeaths151%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country152%}</th>
+                    <th class="tc_cell">{%TotalConfirmed152%}</th>
+                    <th class="tr_cell">{%TotalRecovered152%}</th>
+                    <th class="td_cell">{%TotalDeaths152%}</th>
+                    <th class="nc_cell">{%NewConfirmed152%}</th>
+                    <th class="nr_cell">{%NewRecovered152%}</th>
+                    <th class="nd_cell">{%NewDeaths152%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country153%}</th>
+                    <th class="tc_cell">{%TotalConfirmed153%}</th>
+                    <th class="tr_cell">{%TotalRecovered153%}</th>
+                    <th class="td_cell">{%TotalDeaths153%}</th>
+                    <th class="nc_cell">{%NewConfirmed153%}</th>
+                    <th class="nr_cell">{%NewRecovered153%}</th>
+                    <th class="nd_cell">{%NewDeaths153%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country154%}</th>
+                    <th class="tc_cell">{%TotalConfirmed154%}</th>
+                    <th class="tr_cell">{%TotalRecovered154%}</th>
+                    <th class="td_cell">{%TotalDeaths154%}</th>
+                    <th class="nc_cell">{%NewConfirmed154%}</th>
+                    <th class="nr_cell">{%NewRecovered154%}</th>
+                    <th class="nd_cell">{%NewDeaths154%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country155%}</th>
+                    <th class="tc_cell">{%TotalConfirmed155%}</th>
+                    <th class="tr_cell">{%TotalRecovered155%}</th>
+                    <th class="td_cell">{%TotalDeaths155%}</th>
+                    <th class="nc_cell">{%NewConfirmed155%}</th>
+                    <th class="nr_cell">{%NewRecovered155%}</th>
+                    <th class="nd_cell">{%NewDeaths155%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country156%}</th>
+                    <th class="tc_cell">{%TotalConfirmed156%}</th>
+                    <th class="tr_cell">{%TotalRecovered156%}</th>
+                    <th class="td_cell">{%TotalDeaths156%}</th>
+                    <th class="nc_cell">{%NewConfirmed156%}</th>
+                    <th class="nr_cell">{%NewRecovered156%}</th>
+                    <th class="nd_cell">{%NewDeaths156%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country157%}</th>
+                    <th class="tc_cell">{%TotalConfirmed157%}</th>
+                    <th class="tr_cell">{%TotalRecovered157%}</th>
+                    <th class="td_cell">{%TotalDeaths157%}</th>
+                    <th class="nc_cell">{%NewConfirmed157%}</th>
+                    <th class="nr_cell">{%NewRecovered157%}</th>
+                    <th class="nd_cell">{%NewDeaths157%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country158%}</th>
+                    <th class="tc_cell">{%TotalConfirmed158%}</th>
+                    <th class="tr_cell">{%TotalRecovered158%}</th>
+                    <th class="td_cell">{%TotalDeaths158%}</th>
+                    <th class="nc_cell">{%NewConfirmed158%}</th>
+                    <th class="nr_cell">{%NewRecovered158%}</th>
+                    <th class="nd_cell">{%NewDeaths158%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country159%}</th>
+                    <th class="tc_cell">{%TotalConfirmed159%}</th>
+                    <th class="tr_cell">{%TotalRecovered159%}</th>
+                    <th class="td_cell">{%TotalDeaths159%}</th>
+                    <th class="nc_cell">{%NewConfirmed159%}</th>
+                    <th class="nr_cell">{%NewRecovered159%}</th>
+                    <th class="nd_cell">{%NewDeaths159%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country160%}</th>
+                    <th class="tc_cell">{%TotalConfirmed160%}</th>
+                    <th class="tr_cell">{%TotalRecovered160%}</th>
+                    <th class="td_cell">{%TotalDeaths160%}</th>
+                    <th class="nc_cell">{%NewConfirmed160%}</th>
+                    <th class="nr_cell">{%NewRecovered160%}</th>
+                    <th class="nd_cell">{%NewDeaths160%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country161%}</th>
+                    <th class="tc_cell">{%TotalConfirmed161%}</th>
+                    <th class="tr_cell">{%TotalRecovered161%}</th>
+                    <th class="td_cell">{%TotalDeaths161%}</th>
+                    <th class="nc_cell">{%NewConfirmed161%}</th>
+                    <th class="nr_cell">{%NewRecovered161%}</th>
+                    <th class="nd_cell">{%NewDeaths161%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country162%}</th>
+                    <th class="tc_cell">{%TotalConfirmed162%}</th>
+                    <th class="tr_cell">{%TotalRecovered162%}</th>
+                    <th class="td_cell">{%TotalDeaths162%}</th>
+                    <th class="nc_cell">{%NewConfirmed162%}</th>
+                    <th class="nr_cell">{%NewRecovered162%}</th>
+                    <th class="nd_cell">{%NewDeaths162%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country163%}</th>
+                    <th class="tc_cell">{%TotalConfirmed163%}</th>
+                    <th class="tr_cell">{%TotalRecovered163%}</th>
+                    <th class="td_cell">{%TotalDeaths163%}</th>
+                    <th class="nc_cell">{%NewConfirmed163%}</th>
+                    <th class="nr_cell">{%NewRecovered163%}</th>
+                    <th class="nd_cell">{%NewDeaths163%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country164%}</th>
+                    <th class="tc_cell">{%TotalConfirmed164%}</th>
+                    <th class="tr_cell">{%TotalRecovered164%}</th>
+                    <th class="td_cell">{%TotalDeaths164%}</th>
+                    <th class="nc_cell">{%NewConfirmed164%}</th>
+                    <th class="nr_cell">{%NewRecovered164%}</th>
+                    <th class="nd_cell">{%NewDeaths164%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country165%}</th>
+                    <th class="tc_cell">{%TotalConfirmed165%}</th>
+                    <th class="tr_cell">{%TotalRecovered165%}</th>
+                    <th class="td_cell">{%TotalDeaths165%}</th>
+                    <th class="nc_cell">{%NewConfirmed165%}</th>
+                    <th class="nr_cell">{%NewRecovered165%}</th>
+                    <th class="nd_cell">{%NewDeaths165%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country166%}</th>
+                    <th class="tc_cell">{%TotalConfirmed166%}</th>
+                    <th class="tr_cell">{%TotalRecovered166%}</th>
+                    <th class="td_cell">{%TotalDeaths166%}</th>
+                    <th class="nc_cell">{%NewConfirmed166%}</th>
+                    <th class="nr_cell">{%NewRecovered166%}</th>
+                    <th class="nd_cell">{%NewDeaths166%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country167%}</th>
+                    <th class="tc_cell">{%TotalConfirmed167%}</th>
+                    <th class="tr_cell">{%TotalRecovered167%}</th>
+                    <th class="td_cell">{%TotalDeaths167%}</th>
+                    <th class="nc_cell">{%NewConfirmed167%}</th>
+                    <th class="nr_cell">{%NewRecovered167%}</th>
+                    <th class="nd_cell">{%NewDeaths167%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country168%}</th>
+                    <th class="tc_cell">{%TotalConfirmed168%}</th>
+                    <th class="tr_cell">{%TotalRecovered168%}</th>
+                    <th class="td_cell">{%TotalDeaths168%}</th>
+                    <th class="nc_cell">{%NewConfirmed168%}</th>
+                    <th class="nr_cell">{%NewRecovered168%}</th>
+                    <th class="nd_cell">{%NewDeaths168%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country169%}</th>
+                    <th class="tc_cell">{%TotalConfirmed169%}</th>
+                    <th class="tr_cell">{%TotalRecovered169%}</th>
+                    <th class="td_cell">{%TotalDeaths169%}</th>
+                    <th class="nc_cell">{%NewConfirmed169%}</th>
+                    <th class="nr_cell">{%NewRecovered169%}</th>
+                    <th class="nd_cell">{%NewDeaths169%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country170%}</th>
+                    <th class="tc_cell">{%TotalConfirmed170%}</th>
+                    <th class="tr_cell">{%TotalRecovered170%}</th>
+                    <th class="td_cell">{%TotalDeaths170%}</th>
+                    <th class="nc_cell">{%NewConfirmed170%}</th>
+                    <th class="nr_cell">{%NewRecovered170%}</th>
+                    <th class="nd_cell">{%NewDeaths170%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country171%}</th>
+                    <th class="tc_cell">{%TotalConfirmed171%}</th>
+                    <th class="tr_cell">{%TotalRecovered171%}</th>
+                    <th class="td_cell">{%TotalDeaths171%}</th>
+                    <th class="nc_cell">{%NewConfirmed171%}</th>
+                    <th class="nr_cell">{%NewRecovered171%}</th>
+                    <th class="nd_cell">{%NewDeaths171%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country172%}</th>
+                    <th class="tc_cell">{%TotalConfirmed172%}</th>
+                    <th class="tr_cell">{%TotalRecovered172%}</th>
+                    <th class="td_cell">{%TotalDeaths172%}</th>
+                    <th class="nc_cell">{%NewConfirmed172%}</th>
+                    <th class="nr_cell">{%NewRecovered172%}</th>
+                    <th class="nd_cell">{%NewDeaths172%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country173%}</th>
+                    <th class="tc_cell">{%TotalConfirmed173%}</th>
+                    <th class="tr_cell">{%TotalRecovered173%}</th>
+                    <th class="td_cell">{%TotalDeaths173%}</th>
+                    <th class="nc_cell">{%NewConfirmed173%}</th>
+                    <th class="nr_cell">{%NewRecovered173%}</th>
+                    <th class="nd_cell">{%NewDeaths173%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country174%}</th>
+                    <th class="tc_cell">{%TotalConfirmed174%}</th>
+                    <th class="tr_cell">{%TotalRecovered174%}</th>
+                    <th class="td_cell">{%TotalDeaths174%}</th>
+                    <th class="nc_cell">{%NewConfirmed174%}</th>
+                    <th class="nr_cell">{%NewRecovered174%}</th>
+                    <th class="nd_cell">{%NewDeaths174%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country175%}</th>
+                    <th class="tc_cell">{%TotalConfirmed175%}</th>
+                    <th class="tr_cell">{%TotalRecovered175%}</th>
+                    <th class="td_cell">{%TotalDeaths175%}</th>
+                    <th class="nc_cell">{%NewConfirmed175%}</th>
+                    <th class="nr_cell">{%NewRecovered175%}</th>
+                    <th class="nd_cell">{%NewDeaths175%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country176%}</th>
+                    <th class="tc_cell">{%TotalConfirmed176%}</th>
+                    <th class="tr_cell">{%TotalRecovered176%}</th>
+                    <th class="td_cell">{%TotalDeaths176%}</th>
+                    <th class="nc_cell">{%NewConfirmed176%}</th>
+                    <th class="nr_cell">{%NewRecovered176%}</th>
+                    <th class="nd_cell">{%NewDeaths176%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country177%}</th>
+                    <th class="tc_cell">{%TotalConfirmed177%}</th>
+                    <th class="tr_cell">{%TotalRecovered177%}</th>
+                    <th class="td_cell">{%TotalDeaths177%}</th>
+                    <th class="nc_cell">{%NewConfirmed177%}</th>
+                    <th class="nr_cell">{%NewRecovered177%}</th>
+                    <th class="nd_cell">{%NewDeaths177%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country178%}</th>
+                    <th class="tc_cell">{%TotalConfirmed178%}</th>
+                    <th class="tr_cell">{%TotalRecovered178%}</th>
+                    <th class="td_cell">{%TotalDeaths178%}</th>
+                    <th class="nc_cell">{%NewConfirmed178%}</th>
+                    <th class="nr_cell">{%NewRecovered178%}</th>
+                    <th class="nd_cell">{%NewDeaths178%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country179%}</th>
+                    <th class="tc_cell">{%TotalConfirmed179%}</th>
+                    <th class="tr_cell">{%TotalRecovered179%}</th>
+                    <th class="td_cell">{%TotalDeaths179%}</th>
+                    <th class="nc_cell">{%NewConfirmed179%}</th>
+                    <th class="nr_cell">{%NewRecovered179%}</th>
+                    <th class="nd_cell">{%NewDeaths179%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country180%}</th>
+                    <th class="tc_cell">{%TotalConfirmed180%}</th>
+                    <th class="tr_cell">{%TotalRecovered180%}</th>
+                    <th class="td_cell">{%TotalDeaths180%}</th>
+                    <th class="nc_cell">{%NewConfirmed180%}</th>
+                    <th class="nr_cell">{%NewRecovered180%}</th>
+                    <th class="nd_cell">{%NewDeaths180%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country181%}</th>
+                    <th class="tc_cell">{%TotalConfirmed181%}</th>
+                    <th class="tr_cell">{%TotalRecovered181%}</th>
+                    <th class="td_cell">{%TotalDeaths181%}</th>
+                    <th class="nc_cell">{%NewConfirmed181%}</th>
+                    <th class="nr_cell">{%NewRecovered181%}</th>
+                    <th class="nd_cell">{%NewDeaths181%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country182%}</th>
+                    <th class="tc_cell">{%TotalConfirmed182%}</th>
+                    <th class="tr_cell">{%TotalRecovered182%}</th>
+                    <th class="td_cell">{%TotalDeaths182%}</th>
+                    <th class="nc_cell">{%NewConfirmed182%}</th>
+                    <th class="nr_cell">{%NewRecovered182%}</th>
+                    <th class="nd_cell">{%NewDeaths182%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country183%}</th>
+                    <th class="tc_cell">{%TotalConfirmed183%}</th>
+                    <th class="tr_cell">{%TotalRecovered183%}</th>
+                    <th class="td_cell">{%TotalDeaths183%}</th>
+                    <th class="nc_cell">{%NewConfirmed183%}</th>
+                    <th class="nr_cell">{%NewRecovered183%}</th>
+                    <th class="nd_cell">{%NewDeaths183%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country184%}</th>
+                    <th class="tc_cell">{%TotalConfirmed184%}</th>
+                    <th class="tr_cell">{%TotalRecovered184%}</th>
+                    <th class="td_cell">{%TotalDeaths184%}</th>
+                    <th class="nc_cell">{%NewConfirmed184%}</th>
+                    <th class="nr_cell">{%NewRecovered184%}</th>
+                    <th class="nd_cell">{%NewDeaths184%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country185%}</th>
+                    <th class="tc_cell">{%TotalConfirmed185%}</th>
+                    <th class="tr_cell">{%TotalRecovered185%}</th>
+                    <th class="td_cell">{%TotalDeaths185%}</th>
+                    <th class="nc_cell">{%NewConfirmed185%}</th>
+                    <th class="nr_cell">{%NewRecovered185%}</th>
+                    <th class="nd_cell">{%NewDeaths185%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country186%}</th>
+                    <th class="tc_cell">{%TotalConfirmed186%}</th>
+                    <th class="tr_cell">{%TotalRecovered186%}</th>
+                    <th class="td_cell">{%TotalDeaths186%}</th>
+                    <th class="nc_cell">{%NewConfirmed186%}</th>
+                    <th class="nr_cell">{%NewRecovered186%}</th>
+                    <th class="nd_cell">{%NewDeaths186%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country187%}</th>
+                    <th class="tc_cell">{%TotalConfirmed187%}</th>
+                    <th class="tr_cell">{%TotalRecovered187%}</th>
+                    <th class="td_cell">{%TotalDeaths187%}</th>
+                    <th class="nc_cell">{%NewConfirmed187%}</th>
+                    <th class="nr_cell">{%NewRecovered187%}</th>
+                    <th class="nd_cell">{%NewDeaths187%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country188%}</th>
+                    <th class="tc_cell">{%TotalConfirmed188%}</th>
+                    <th class="tr_cell">{%TotalRecovered188%}</th>
+                    <th class="td_cell">{%TotalDeaths188%}</th>
+                    <th class="nc_cell">{%NewConfirmed188%}</th>
+                    <th class="nr_cell">{%NewRecovered188%}</th>
+                    <th class="nd_cell">{%NewDeaths188%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country189%}</th>
+                    <th class="tc_cell">{%TotalConfirmed189%}</th>
+                    <th class="tr_cell">{%TotalRecovered189%}</th>
+                    <th class="td_cell">{%TotalDeaths189%}</th>
+                    <th class="nc_cell">{%NewConfirmed189%}</th>
+                    <th class="nr_cell">{%NewRecovered189%}</th>
+                    <th class="nd_cell">{%NewDeaths189%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country190%}</th>
+                    <th class="tc_cell">{%TotalConfirmed190%}</th>
+                    <th class="tr_cell">{%TotalRecovered190%}</th>
+                    <th class="td_cell">{%TotalDeaths190%}</th>
+                    <th class="nc_cell">{%NewConfirmed190%}</th>
+                    <th class="nr_cell">{%NewRecovered190%}</th>
+                    <th class="nd_cell">{%NewDeaths190%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country191%}</th>
+                    <th class="tc_cell">{%TotalConfirmed191%}</th>
+                    <th class="tr_cell">{%TotalRecovered191%}</th>
+                    <th class="td_cell">{%TotalDeaths191%}</th>
+                    <th class="nc_cell">{%NewConfirmed191%}</th>
+                    <th class="nr_cell">{%NewRecovered191%}</th>
+                    <th class="nd_cell">{%NewDeaths191%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country192%}</th>
+                    <th class="tc_cell">{%TotalConfirmed192%}</th>
+                    <th class="tr_cell">{%TotalRecovered192%}</th>
+                    <th class="td_cell">{%TotalDeaths192%}</th>
+                    <th class="nc_cell">{%NewConfirmed192%}</th>
+                    <th class="nr_cell">{%NewRecovered192%}</th>
+                    <th class="nd_cell">{%NewDeaths192%}</th>
+                </tr>
+                <tr>
+                    <th class="country_cell">{%Country193%}</th>
+                    <th class="tc_cell">{%TotalConfirmed193%}</th>
+                    <th class="tr_cell">{%TotalRecovered193%}</th>
+                    <th class="td_cell">{%TotalDeaths193%}</th>
+                    <th class="nc_cell">{%NewConfirmed193%}</th>
+                    <th class="nr_cell">{%NewRecovered193%}</th>
+                    <th class="nd_cell">{%NewDeaths193%}</th>
+                </tr>
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- /////////////////// Top cursor \\\\\\\\\\\\\\\\\ -->
+
+    <div class="containter scrolltop float-right pr-5">
+        <i class="fa fa-arrow-up" onclick="topFunction()" id="myBtn"> </i>
+    </div>
+
+    <!-- /////////////////// Footer \\\\\\\\\\\\\\\\\ -->
+
+    <footer>
+        <div class="footer_style text-white text-center container-fluid">
+            <p>created by Udit Jangid</p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"
+        integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"
+        integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+
+        // ************ top arrow script ***************
+
+        mybutton = document.getElementById("myBtn");
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+    </script>
+
+</body>
+
+</html>

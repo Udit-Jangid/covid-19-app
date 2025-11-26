@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        /* ///////////// Nav Bar \\\\\\\\\\\\ */
+        .nav_style {
+            background-color: #66cdaa61 !important;
+        }
+
+        .nav_style a {
+            color: blueviolet;
+            /* color: black; */
+        }
+
+        .nav_style a:hover {
+            /* color: blueviolet; */
+            color: black;
+        }
+
+
+
+        /* ///////////// main header \\\\\\\\\\\\ */
+        .main_header {
+            height: 450px;
+            width: 100%;
+        }
+
+        .rightside h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .corona_rot img {
+            animation: gocorona 3s linear infinite;
+        }
+
+        @keyframes gocorona {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .leftside img {
+            animation: heartbeat 5s linear infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(.75) rotate(0deg);
+            }
+
+            20% {
+                transform: scale(1) rotate(60deg);
+                ;
+            }
+
+            40% {
+                transform: scale(.75) rotate(120deg);
+                ;
+            }
+
+            60% {
+                transform: scale(1) rotate(180deg);
+                ;
+            }
+
+            80% {
+                transform: scale(.75) rotate(240deg);
+                ;
+            }
+
+            100% {
+                transform: scale(1) rotate(360deg);
+                ;
+            }
+        }
+
+
+        /* ////////////// corona_update \\\\\\\\\\\\\\\\\*/
+
+        .corona_update {
+            margin: 0 0 30px 0;
+        }
+
+        .corona_update h3 {
+            color: #ff7675;
+            font-weight: 600;
+        }
+
+        .corona_update h1 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+
+        /* ///////////////// about section \\\\\\\\\\\\\\\\\\ */
+
+        .sub_section {
+            background-color: #f8f5ff;
+        }
+
+        .sub_section h1 {
+            font-weight: 900;
+        }
+
+        .sub_section h2 {
+            font-weight: 700;
+        }
+
+        .sub_section p {
+            font-size: 1.2rem;
+        }
+
+        /* /////////////////// Coronavirus symptoms \\\\\\\\\\\\\\\\\ */
+
+        .corona_symptoms h1 {
+            font-weight: 900;
+        }
+
+        .corona_symptoms figcaption {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* /////////////////// Prevention Against Coronavirus \\\\\\\\\\\\\\\\\ */
+
+        .prevention_corona {
+            background-color: #f8f5ff;
+        }
+
+        .prevention_corona h1 {
+            font-weight: 900;
+        }
+
+        .prevention_corona p {
+            font-size: 1.05rem;
+            font-weight: bold;
+        }
+
+
+        /* /////////////////// Footer \\\\\\\\\\\\\\\\\ */
+
+        .footer_style {
+            background-color: black !important;
+        }
+
+        .footer_style p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0 !important;
+        }
+
+
+        /***************** top scroll **************/
+        #myBtn {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Fixed/sticky position */
+            bottom: 42px;
+            /* Place the button at the bottom of the page */
+            right: 40px;
+            /* Place the button 30px from the right */
+            z-index: 99;
+            /* Make sure it does not overlap */
+            border: none;
+            /* Remove borders */
+            outline: none;
+            /* Remove outline */
+            background-color: #00A8FF;
+            /* Set a background color */
+            color: white;
+            /* Text color */
+            cursor: pointer;
+            /* Add a mouse pointer on hover */
+            padding: 10px;
+            /* Some padding */
+            border-radius: 10px;
+            /* Rounded corners */
+        }
+
+        #myBtn:hover {
+            background: #606060;
+            /* Add a dark-grey background on hover */
+        }
+
+
+        /***************** responsive css *****************/
+
+        @media(max-width: 780px) {
+            .main_header {
+                height: 700px;
+                text-align: center;
+            }
+
+            .main_header h1 {
+                text-align: center;
+                padding: 0;
+                width: 100%;
+                font-size: 30px;
+            }
+
+            .count_style {
+                display: inline !important;
+            }
+
+            .count_style p {
+                text-align: center;
+            }
+
+            .about_res {
+                margin-left: 0 !important;
+            }
+        }
+
+
+        /* /////////////////// India Table CSS \\\\\\\\\\\\\\\\\ */
+
+        .india_head {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .state_cell {
+            background-color: #7a4a91;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg nav_style p-2" style="font-weight: 600;">
+        <a class="navbar-brand pl-5" href="#">COVID-19</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto pr-5 text-capitalize">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./home.html#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./home.html#aboutid">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./home.html#sympid">Symptoms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./home.html#preventid">Prevention</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./worldlive.html">World-Live</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./indialive.html">India-Live</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <!--  ///////////// india live cases \\\\\\\\\\\\\\\  -->
+
+    <section class="corona_update container-fluid">
+        <div class="mt-5 mb-5">
+            <h3 class="text-uppercase text-center">COVID-19 LIVE UPDATES OF INDIA</h3>
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped text-center" id="tbval">
+                <tr class="india_head">
+                    <th>State</th>
+                    <th>Confirmed</th>
+                    <th>Active</th>
+                    <th>Recovered</th>
+                    <th>Deaths</th>
+                    <th>Updated On</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State1%}</th>
+                    <th class="c_cell">{%Confirmed1%}</th>
+                    <th class="a_cell">{%Active1%}</th>
+                    <th class="r_cell">{%Recovered1%}</th>
+                    <th class="d_cell">{%Deaths1%}</th>
+                    <th class="time_cell">{%Updated On1%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State2%}</th>
+                    <th class="c_cell">{%Confirmed2%}</th>
+                    <th class="a_cell">{%Active2%}</th>
+                    <th class="r_cell">{%Recovered2%}</th>
+                    <th class="d_cell">{%Deaths2%}</th>
+                    <th class="time_cell">{%Updated On2%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State3%}</th>
+                    <th class="c_cell">{%Confirmed3%}</th>
+                    <th class="a_cell">{%Active3%}</th>
+                    <th class="r_cell">{%Recovered3%}</th>
+                    <th class="d_cell">{%Deaths3%}</th>
+                    <th class="time_cell">{%Updated On3%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State4%}</th>
+                    <th class="c_cell">{%Confirmed4%}</th>
+                    <th class="a_cell">{%Active4%}</th>
+                    <th class="r_cell">{%Recovered4%}</th>
+                    <th class="d_cell">{%Deaths4%}</th>
+                    <th class="time_cell">{%Updated On4%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State5%}</th>
+                    <th class="c_cell">{%Confirmed5%}</th>
+                    <th class="a_cell">{%Active5%}</th>
+                    <th class="r_cell">{%Recovered5%}</th>
+                    <th class="d_cell">{%Deaths5%}</th>
+                    <th class="time_cell">{%Updated On5%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State6%}</th>
+                    <th class="c_cell">{%Confirmed6%}</th>
+                    <th class="a_cell">{%Active6%}</th>
+                    <th class="r_cell">{%Recovered6%}</th>
+                    <th class="d_cell">{%Deaths6%}</th>
+                    <th class="time_cell">{%Updated On6%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State7%}</th>
+                    <th class="c_cell">{%Confirmed7%}</th>
+                    <th class="a_cell">{%Active7%}</th>
+                    <th class="r_cell">{%Recovered7%}</th>
+                    <th class="d_cell">{%Deaths7%}</th>
+                    <th class="time_cell">{%Updated On7%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State8%}</th>
+                    <th class="c_cell">{%Confirmed8%}</th>
+                    <th class="a_cell">{%Active8%}</th>
+                    <th class="r_cell">{%Recovered8%}</th>
+                    <th class="d_cell">{%Deaths8%}</th>
+                    <th class="time_cell">{%Updated On8%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State9%}</th>
+                    <th class="c_cell">{%Confirmed9%}</th>
+                    <th class="a_cell">{%Active9%}</th>
+                    <th class="r_cell">{%Recovered9%}</th>
+                    <th class="d_cell">{%Deaths9%}</th>
+                    <th class="time_cell">{%Updated On9%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State10%}</th>
+                    <th class="c_cell">{%Confirmed10%}</th>
+                    <th class="a_cell">{%Active10%}</th>
+                    <th class="r_cell">{%Recovered10%}</th>
+                    <th class="d_cell">{%Deaths10%}</th>
+                    <th class="time_cell">{%Updated On10%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State11%}</th>
+                    <th class="c_cell">{%Confirmed11%}</th>
+                    <th class="a_cell">{%Active11%}</th>
+                    <th class="r_cell">{%Recovered11%}</th>
+                    <th class="d_cell">{%Deaths11%}</th>
+                    <th class="time_cell">{%Updated On11%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State12%}</th>
+                    <th class="c_cell">{%Confirmed12%}</th>
+                    <th class="a_cell">{%Active12%}</th>
+                    <th class="r_cell">{%Recovered12%}</th>
+                    <th class="d_cell">{%Deaths12%}</th>
+                    <th class="time_cell">{%Updated On12%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State13%}</th>
+                    <th class="c_cell">{%Confirmed13%}</th>
+                    <th class="a_cell">{%Active13%}</th>
+                    <th class="r_cell">{%Recovered13%}</th>
+                    <th class="d_cell">{%Deaths13%}</th>
+                    <th class="time_cell">{%Updated On13%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State14%}</th>
+                    <th class="c_cell">{%Confirmed14%}</th>
+                    <th class="a_cell">{%Active14%}</th>
+                    <th class="r_cell">{%Recovered14%}</th>
+                    <th class="d_cell">{%Deaths14%}</th>
+                    <th class="time_cell">{%Updated On14%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State15%}</th>
+                    <th class="c_cell">{%Confirmed15%}</th>
+                    <th class="a_cell">{%Active15%}</th>
+                    <th class="r_cell">{%Recovered15%}</th>
+                    <th class="d_cell">{%Deaths15%}</th>
+                    <th class="time_cell">{%Updated On15%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State16%}</th>
+                    <th class="c_cell">{%Confirmed16%}</th>
+                    <th class="a_cell">{%Active16%}</th>
+                    <th class="r_cell">{%Recovered16%}</th>
+                    <th class="d_cell">{%Deaths16%}</th>
+                    <th class="time_cell">{%Updated On16%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State17%}</th>
+                    <th class="c_cell">{%Confirmed17%}</th>
+                    <th class="a_cell">{%Active17%}</th>
+                    <th class="r_cell">{%Recovered17%}</th>
+                    <th class="d_cell">{%Deaths17%}</th>
+                    <th class="time_cell">{%Updated On17%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State18%}</th>
+                    <th class="c_cell">{%Confirmed18%}</th>
+                    <th class="a_cell">{%Active18%}</th>
+                    <th class="r_cell">{%Recovered18%}</th>
+                    <th class="d_cell">{%Deaths18%}</th>
+                    <th class="time_cell">{%Updated On18%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State19%}</th>
+                    <th class="c_cell">{%Confirmed19%}</th>
+                    <th class="a_cell">{%Active19%}</th>
+                    <th class="r_cell">{%Recovered19%}</th>
+                    <th class="d_cell">{%Deaths19%}</th>
+                    <th class="time_cell">{%Updated On19%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State20%}</th>
+                    <th class="c_cell">{%Confirmed20%}</th>
+                    <th class="a_cell">{%Active20%}</th>
+                    <th class="r_cell">{%Recovered20%}</th>
+                    <th class="d_cell">{%Deaths20%}</th>
+                    <th class="time_cell">{%Updated On20%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State21%}</th>
+                    <th class="c_cell">{%Confirmed21%}</th>
+                    <th class="a_cell">{%Active21%}</th>
+                    <th class="r_cell">{%Recovered21%}</th>
+                    <th class="d_cell">{%Deaths21%}</th>
+                    <th class="time_cell">{%Updated On21%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State22%}</th>
+                    <th class="c_cell">{%Confirmed22%}</th>
+                    <th class="a_cell">{%Active22%}</th>
+                    <th class="r_cell">{%Recovered22%}</th>
+                    <th class="d_cell">{%Deaths22%}</th>
+                    <th class="time_cell">{%Updated On22%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State23%}</th>
+                    <th class="c_cell">{%Confirmed23%}</th>
+                    <th class="a_cell">{%Active23%}</th>
+                    <th class="r_cell">{%Recovered23%}</th>
+                    <th class="d_cell">{%Deaths23%}</th>
+                    <th class="time_cell">{%Updated On23%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State24%}</th>
+                    <th class="c_cell">{%Confirmed24%}</th>
+                    <th class="a_cell">{%Active24%}</th>
+                    <th class="r_cell">{%Recovered24%}</th>
+                    <th class="d_cell">{%Deaths24%}</th>
+                    <th class="time_cell">{%Updated On24%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State25%}</th>
+                    <th class="c_cell">{%Confirmed25%}</th>
+                    <th class="a_cell">{%Active25%}</th>
+                    <th class="r_cell">{%Recovered25%}</th>
+                    <th class="d_cell">{%Deaths25%}</th>
+                    <th class="time_cell">{%Updated On25%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State26%}</th>
+                    <th class="c_cell">{%Confirmed26%}</th>
+                    <th class="a_cell">{%Active26%}</th>
+                    <th class="r_cell">{%Recovered26%}</th>
+                    <th class="d_cell">{%Deaths26%}</th>
+                    <th class="time_cell">{%Updated On26%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State27%}</th>
+                    <th class="c_cell">{%Confirmed27%}</th>
+                    <th class="a_cell">{%Active27%}</th>
+                    <th class="r_cell">{%Recovered27%}</th>
+                    <th class="d_cell">{%Deaths27%}</th>
+                    <th class="time_cell">{%Updated On27%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State28%}</th>
+                    <th class="c_cell">{%Confirmed28%}</th>
+                    <th class="a_cell">{%Active28%}</th>
+                    <th class="r_cell">{%Recovered28%}</th>
+                    <th class="d_cell">{%Deaths28%}</th>
+                    <th class="time_cell">{%Updated On28%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State29%}</th>
+                    <th class="c_cell">{%Confirmed29%}</th>
+                    <th class="a_cell">{%Active29%}</th>
+                    <th class="r_cell">{%Recovered29%}</th>
+                    <th class="d_cell">{%Deaths29%}</th>
+                    <th class="time_cell">{%Updated On29%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State30%}</th>
+                    <th class="c_cell">{%Confirmed30%}</th>
+                    <th class="a_cell">{%Active30%}</th>
+                    <th class="r_cell">{%Recovered30%}</th>
+                    <th class="d_cell">{%Deaths30%}</th>
+                    <th class="time_cell">{%Updated On30%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State31%}</th>
+                    <th class="c_cell">{%Confirmed31%}</th>
+                    <th class="a_cell">{%Active31%}</th>
+                    <th class="r_cell">{%Recovered31%}</th>
+                    <th class="d_cell">{%Deaths31%}</th>
+                    <th class="time_cell">{%Updated On31%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State32%}</th>
+                    <th class="c_cell">{%Confirmed32%}</th>
+                    <th class="a_cell">{%Active32%}</th>
+                    <th class="r_cell">{%Recovered32%}</th>
+                    <th class="d_cell">{%Deaths32%}</th>
+                    <th class="time_cell">{%Updated On32%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State33%}</th>
+                    <th class="c_cell">{%Confirmed33%}</th>
+                    <th class="a_cell">{%Active33%}</th>
+                    <th class="r_cell">{%Recovered33%}</th>
+                    <th class="d_cell">{%Deaths33%}</th>
+                    <th class="time_cell">{%Updated On33%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State34%}</th>
+                    <th class="c_cell">{%Confirmed34%}</th>
+                    <th class="a_cell">{%Active34%}</th>
+                    <th class="r_cell">{%Recovered34%}</th>
+                    <th class="d_cell">{%Deaths34%}</th>
+                    <th class="time_cell">{%Updated On34%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State35%}</th>
+                    <th class="c_cell">{%Confirmed35%}</th>
+                    <th class="a_cell">{%Active35%}</th>
+                    <th class="r_cell">{%Recovered35%}</th>
+                    <th class="d_cell">{%Deaths35%}</th>
+                    <th class="time_cell">{%Updated On35%}</th>
+                </tr>
+                <tr>
+                    <th class="state_cell">{%State36%}</th>
+                    <th class="c_cell">{%Confirmed36%}</th>
+                    <th class="a_cell">{%Active36%}</th>
+                    <th class="r_cell">{%Recovered36%}</th>
+                    <th class="d_cell">{%Deaths36%}</th>
+                    <th class="time_cell">{%Updated On36%}</th>
+                </tr>
+
+            </table>
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <!-- /////////////////// Top cursor \\\\\\\\\\\\\\\\\ -->
+
+    <div class="containter scrolltop float-right pr-5">
+        <i class="fa fa-arrow-up" onclick="topFunction()" id="myBtn"> </i>
+    </div>
+
+    <!-- /////////////////// Footer \\\\\\\\\\\\\\\\\ -->
+
+    <footer>
+        <div class="footer_style text-white text-center container-fluid">
+            <p>created by Udit Jangid</p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"
+        integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"
+        integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+
+        // ************ top arrow script ***************
+
+        mybutton = document.getElementById("myBtn");
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+    </script>
+
+</body>
+
+</html>
