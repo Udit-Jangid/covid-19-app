@@ -1,9 +1,13 @@
 {
+  "homepage": "https://Udit-Jangid.github.io/covid-19-app",
   "name": "covid-app",
   "version": "1.0.0",
   "description": "Covid Website with Live India and World Cases using API",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Udit Jangid",
